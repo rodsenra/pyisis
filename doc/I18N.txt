@@ -1,0 +1,50 @@
+I18n com GNU gettext
+====================
+
+1 - Gerando arquivo de tradução (.po)
+-------------------------------------
+
+Arquivo pyisis.pot é onde estão todas as strings de traducao dos módulos do projeto, gerados a partir do comando:
+
+$ pygettext.py -v *.py sample/*.py scripts/*.py tools/*.py web/*.py
+
+Obs.: Incluir todos os diretórios do projeto para sofrer a extração das strings do tipo _(''). 
+
+
+2 - Gerando arquivo .mo
+------------------------
+
+O arqivo original (.pot) apresenta as strings na língua "en", portanto é necessário utilizar uma ferramenta de auxílio para tradução,(sugestões: KBabel, gtranslator).
+O arquivo gerado com a tradução de cada língua deve ser com extensão .po e deve ser convertido com o comando:
+
+$ msgfmt pyisis-pt_BR.po -o pyisis-pt_BR.mo 
+
+e copiado para o respectivo diretório da língua, por exemplo:
+
+$ cp pyisis-pt_BR.mo /usr/share/locale/pt_BR/LC_MESSAGES/pyisis.mo
+ 
+
+3 - Modificações
+----------------
+
+Para manter os arquivos de tradução atualizados, seguir os procedimentos:
+
+1 - Gerar novamente o arquivo .pot, seguindo o procedimento 1 acima:
+2 - Executar o comando:
+
+$ msgmerge pyisis-pt_BR.po pyisis.pot > pyisis-pt_BR.po 
+
+Efetuar os ajustes necessários para equalização.
+
+3 - Gerar novamente o arquivo .mo, segundo procedimento 2 acima.
+
+
+Uso:
+====
+
+import gettext
+gettext.install('pyisis',localedir="/usr/share/locale")
+lang1 = gettext.translation('pyisis',languages=['pt_BR'],localedir='/usr/share/locale')
+lang1.install()
+
+

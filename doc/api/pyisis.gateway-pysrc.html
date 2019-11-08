@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyisis.gateway</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyisis-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyisis-module.html">Package&nbsp;pyisis</a> ::
+        Module&nbsp;gateway
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyisis.gateway-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyisis.gateway-module.html">Module pyisis.gateway</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-docstring">"""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">This module implements the Cell&#180; s Gateway</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">Handling of URL Gateway service interface.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable pyisis.action_registry.__updated__=pyisis.action_registry-module.html#__updated__,Variable pyisis.engine.__updated__=pyisis.engine-module.html#__updated__,Variable pyisis.files.__updated__=pyisis.files-module.html#__updated__,Variable pyisis.format.__updated__=pyisis.format-module.html#__updated__,Variable pyisis.gateway.__updated__=pyisis.gateway-module.html#__updated__,Variable pyisis.records.__updated__=pyisis.records-module.html#__updated__,Variable pyisis.tools.pymx.__updated__=pyisis.tools.pymx-module.html#__updated__,Variable pyisis.views.__updated__=pyisis.views-module.html#__updated__"><a title="pyisis.action_registry.__updated__
+pyisis.engine.__updated__
+pyisis.files.__updated__
+pyisis.format.__updated__
+pyisis.gateway.__updated__
+pyisis.records.__updated__
+pyisis.tools.pymx.__updated__
+pyisis.views.__updated__" class="py-name" href="#" onclick="return doclink('link-0', '__updated__', 'link-0');">__updated__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"2007-12-16"</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable pyisis.action_registry.__created__=pyisis.action_registry-module.html#__created__,Variable pyisis.engine.__created__=pyisis.engine-module.html#__created__,Variable pyisis.files.__created__=pyisis.files-module.html#__created__,Variable pyisis.format.__created__=pyisis.format-module.html#__created__,Variable pyisis.gateway.__created__=pyisis.gateway-module.html#__created__,Variable pyisis.records.__created__=pyisis.records-module.html#__created__,Variable pyisis.tools.pymx.__created__=pyisis.tools.pymx-module.html#__created__,Variable pyisis.views.__created__=pyisis.views-module.html#__created__"><a title="pyisis.action_registry.__created__
+pyisis.engine.__created__
+pyisis.files.__created__
+pyisis.format.__created__
+pyisis.gateway.__created__
+pyisis.records.__created__
+pyisis.tools.pymx.__created__
+pyisis.views.__created__" class="py-name" href="#" onclick="return doclink('link-1', '__created__', 'link-1');">__created__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"2007-11-22"</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-name">__author__</tt>  <tt class="py-op">=</tt> <tt class="py-string">"Rodrigo Senra &lt;rodsenra@gpr.com.br&gt;"</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">twisted</tt><tt class="py-op">.</tt><tt class="py-name">internet</tt> <tt class="py-keyword">import</tt> <tt class="py-name">reactor</tt><tt class="py-op">,</tt> <tt class="py-name">defer</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">twisted</tt><tt class="py-op">.</tt><tt class="py-name">web</tt> <tt class="py-keyword">import</tt> <tt class="py-name">http</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">glob</tt> <tt class="py-keyword">import</tt> <tt class="py-name">glob</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> <tt class="py-keyword">import</tt> <tt class="py-name">join</tt><tt class="py-op">,</tt> <tt class="py-name">basename</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">copy</tt> <tt class="py-keyword">import</tt> <tt class="py-name">deepcopy</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module pyisis.config=pyisis.config-module.html"><a title="pyisis.config" class="py-name" href="#" onclick="return doclink('link-2', 'config', 'link-2');">config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class pyisis.config.Config=pyisis.config.Config-class.html"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-3', 'Config', 'link-3');">Config</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Variable pyisis.config.banner=pyisis.config-module.html#banner"><a title="pyisis.config.banner" class="py-name" href="#" onclick="return doclink('link-4', 'banner', 'link-4');">banner</a></tt><tt class="py-op">,</tt> <tt class="py-name">__version__</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name" targets="Module pyisis.engine=pyisis.engine-module.html"><a title="pyisis.engine" class="py-name" href="#" onclick="return doclink('link-5', 'engine', 'link-5');">engine</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class pyisis.engine.Engine=pyisis.engine.Engine-class.html"><a title="pyisis.engine.Engine" class="py-name" href="#" onclick="return doclink('link-6', 'Engine', 'link-6');">Engine</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Module pyisis.action_registry=pyisis.action_registry-module.html"><a title="pyisis.action_registry" class="py-name" href="#" onclick="return doclink('link-7', 'action_registry', 'link-7');">action_registry</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable pyisis.gateway.ACTION_SEP=pyisis.gateway-module.html#ACTION_SEP"><a title="pyisis.gateway.ACTION_SEP" class="py-name" href="#" onclick="return doclink('link-8', 'ACTION_SEP', 'link-8');">ACTION_SEP</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'@'</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="PipelineQueue"></a><div id="PipelineQueue-def"><a name="L26"></a><tt class="py-lineno"> 26</tt> <a class="py-toggle" href="#" id="PipelineQueue-toggle" onclick="return toggle('PipelineQueue');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyisis.gateway.PipelineQueue-class.html">PipelineQueue</a><tt class="py-op">(</tt><tt class="py-base-class">list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PipelineQueue-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PipelineQueue-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">    <tt class="py-docstring">"""List of strings representing a pipeline (resources+actions).</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    This pipeline behaves like a FIFO (queue), and extends a</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">    native python list so dynamically attributes can be created.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="PipelineQueue.__init__"></a><div id="PipelineQueue.__init__-def"><a name="L31"></a><tt class="py-lineno"> 31</tt> <a class="py-toggle" href="#" id="PipelineQueue.__init__-toggle" onclick="return toggle('PipelineQueue.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.gateway.PipelineQueue-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PipelineQueue.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PipelineQueue.__init__-expanded"><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-docstring">""" Break up request path into action strings.</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">        Builds a queue (list) of tuples, each tuple contains</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">        an action string and respective params.</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">cleaned</tt><tt class="py-op">(</tt><tt class="py-param">somelist</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">i</tt> <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">somelist</tt> <tt class="py-keyword">if</tt> <tt class="py-name">i</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-comment"># normalize line-ending</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">if</tt> <tt class="py-name">url</tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">            <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">actions</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">segment</tt> <tt class="py-keyword">in</tt> <tt class="py-name">url</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">segment</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                <tt class="py-keyword">continue</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">segment</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="pyisis.gateway.ACTION_SEP" class="py-name" href="#" onclick="return doclink('link-9', 'ACTION_SEP', 'link-8');">ACTION_SEP</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-string">"?"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">segment</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                <tt class="py-comment"># this is an action segment</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># the action has parameters</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">action_name</tt><tt class="py-op">,</tt> <tt class="py-name">raw_params</tt> <tt class="py-op">=</tt> <tt class="py-name">segment</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'?'</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"="</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">raw_params</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"&amp;"</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                <tt class="py-name">actions</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">action_name</tt><tt class="py-op">,</tt> <tt class="py-name">params</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                <tt class="py-comment"># this is either a resource segment or a parameterless action</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">actions</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">segment</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">list</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method pyisis.files.CDSIsisCollection.__init__()=pyisis.files.CDSIsisCollection-class.html#__init__,Method pyisis.files.Collection.__init__()=pyisis.files.Collection-class.html#__init__,Method pyisis.files.MasterFile.__init__()=pyisis.files.MasterFile-class.html#__init__,Method pyisis.gateway.Execution.__init__()=pyisis.gateway.Execution-class.html#__init__,Method pyisis.gateway.PipelineQueue.__init__()=pyisis.gateway.PipelineQueue-class.html#__init__,Method pyisis.records.MasterField.__init__()=pyisis.records.MasterField-class.html#__init__,Method pyisis.records.MasterFileRecord.__init__()=pyisis.records.MasterFileRecord-class.html#__init__,Method pyisis.records.XrfRecord.__init__()=pyisis.records.XrfRecord-class.html#__init__"><a title="pyisis.files.CDSIsisCollection.__init__
+pyisis.files.Collection.__init__
+pyisis.files.MasterFile.__init__
+pyisis.gateway.Execution.__init__
+pyisis.gateway.PipelineQueue.__init__
+pyisis.records.MasterField.__init__
+pyisis.records.MasterFileRecord.__init__
+pyisis.records.XrfRecord.__init__" class="py-name" href="#" onclick="return doclink('link-10', '__init__', 'link-10');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">actions</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="Execution"></a><div id="Execution-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="Execution-toggle" onclick="return toggle('Execution');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyisis.gateway.Execution-class.html">Execution</a><tt class="py-op">(</tt><tt class="py-base-class">list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Execution-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Execution-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-docstring">"""The execution knows the pipeline's stage being processed</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    and holds the execution's stack.</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="Execution.__init__"></a><div id="Execution.__init__-def"><a name="L64"></a><tt class="py-lineno"> 64</tt> <a class="py-toggle" href="#" id="Execution.__init__-toggle" onclick="return toggle('Execution.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.gateway.Execution-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">elements</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Execution.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Execution.__init__-expanded"><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stage_index</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">list</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="pyisis.files.CDSIsisCollection.__init__
+pyisis.files.Collection.__init__
+pyisis.files.MasterFile.__init__
+pyisis.gateway.Execution.__init__
+pyisis.gateway.PipelineQueue.__init__
+pyisis.records.MasterField.__init__
+pyisis.records.MasterFileRecord.__init__
+pyisis.records.XrfRecord.__init__" class="py-name" href="#" onclick="return doclink('link-11', '__init__', 'link-10');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">elements</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">     </tt>
+<a name="executor_loop"></a><div id="executor_loop-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="executor_loop-toggle" onclick="return toggle('executor_loop');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.gateway-module.html#executor_loop">executor_loop</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="executor_loop-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="executor_loop-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-docstring">"""This function expects to receive a context object, having</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    a pipeline and an execution as attributes.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    Each pipeline element is either a resource or an action.</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    While iterating through the pipeline, each time a resource is found</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    it is pushed into the execution's stack. If an action is found it</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    pops its parameters from the execution stack, optionally pushing</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">    its results on to the top of the stack. </tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">index</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">stage</tt><tt class="py-op">,</tt> <tt class="py-name">params</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">pipeline</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">stage</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name"><a title="pyisis.gateway.ACTION_SEP" class="py-name" href="#" onclick="return doclink('link-12', 'ACTION_SEP', 'link-8');">ACTION_SEP</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-comment"># this is an action. Call it!</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">action</tt> <tt class="py-op">=</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="pyisis.action_registry" class="py-name" href="#" onclick="return doclink('link-13', 'action_registry', 'link-7');">action_registry</a></tt><tt class="py-op">,</tt> <tt class="py-name">stage</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-name">action</tt><tt class="py-op">(</tt><tt class="py-name">context</tt><tt class="py-op">,</tt> <tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-comment"># This is a resource. Load it!</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># So far a resource string is a key for</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># a value inside the resource container object</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># placed at the top of the stack</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">resource_container</tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">execution</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-name">key</tt> <tt class="py-op">=</tt> <tt class="py-name">stage</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">new_resource</tt> <tt class="py-op">=</tt> <tt class="py-name">resource_container</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">execution</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">new_resource</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">             </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">execution</tt><tt class="py-op">.</tt><tt class="py-name">stage_index</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-comment"># If something is left at the top of the stack</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># it will be added to the HTTP response</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-name">resource</tt> <tt class="py-op">=</tt> <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">execution</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt>  </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">write</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">resource</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">IndexError</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">     </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">finish</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">     </tt>
+<a name="handleError"></a><div id="handleError-def"><a name="L105"></a><tt class="py-lineno">105</tt> <a class="py-toggle" href="#" id="handleError-toggle" onclick="return toggle('handleError');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.gateway-module.html#handleError">handleError</a><tt class="py-op">(</tt><tt class="py-param">failure</tt><tt class="py-op">,</tt> <tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="handleError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="handleError-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-docstring">"""Handle errors that occur during executor_loop"""</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-name">failure_dump</tt> <tt class="py-op">=</tt> <tt class="py-string">"""</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-string">    Invalid request, please verify the parameters given.</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-string">    </tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-string">    An error has occurred:</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-string">    type: %s</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-string">    message: %s</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-string">    execution stack:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-string">    %s</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-string">    </tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-string">    """</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">failure</tt><tt class="py-op">.</tt><tt class="py-name">type</tt><tt class="py-op">,</tt> <tt class="py-name">failure</tt><tt class="py-op">.</tt><tt class="py-name">getErrorMessage</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">failure</tt><tt class="py-op">.</tt><tt class="py-name">getTraceback</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">    <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">write</tt><tt class="py-op">(</tt><tt class="py-name">failure_dump</tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-name">context</tt><tt class="py-op">.</tt><tt class="py-name">finish</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">     </tt>
+<a name="RestRequestHandler"></a><div id="RestRequestHandler-def"><a name="L123"></a><tt class="py-lineno">123</tt> <a class="py-toggle" href="#" id="RestRequestHandler-toggle" onclick="return toggle('RestRequestHandler');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyisis.gateway.RestRequestHandler-class.html">RestRequestHandler</a><tt class="py-op">(</tt><tt class="py-base-class">http</tt><tt class="py-op">.</tt><tt class="py-base-class">Request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RestRequestHandler-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RestRequestHandler-expanded"><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-docstring">""" This class implements a generic HTTP/REST request handler plugin.</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="RestRequestHandler.process"></a><div id="RestRequestHandler.process-def"><a name="L126"></a><tt class="py-lineno">126</tt> <a class="py-toggle" href="#" id="RestRequestHandler.process-toggle" onclick="return toggle('RestRequestHandler.process');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.gateway.RestRequestHandler-class.html#process">process</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RestRequestHandler.process-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RestRequestHandler.process-expanded"><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-comment"># preserve pipeline history</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># this may be needed is some action or resource</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># needs to look into the past</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pipeline</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name" targets="Class pyisis.gateway.PipelineQueue=pyisis.gateway.PipelineQueue-class.html"><a title="pyisis.gateway.PipelineQueue" class="py-name" href="#" onclick="return doclink('link-14', 'PipelineQueue', 'link-14');">PipelineQueue</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">uri</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-comment"># An Executor instance is needed to hold the</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># execution stack and index to which is the current</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># pipeline's stage</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">execution</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name" targets="Class pyisis.gateway.Execution=pyisis.gateway.Execution-class.html"><a title="pyisis.gateway.Execution" class="py-name" href="#" onclick="return doclink('link-15', 'Execution', 'link-15');">Execution</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">channel</tt><tt class="py-op">.</tt><tt class="py-name">factory</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="pyisis.engine" class="py-name" href="#" onclick="return doclink('link-16', 'engine', 'link-5');">engine</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable pyisis.engine.Engine.collection=pyisis.engine.Engine-class.html#collection"><a title="pyisis.engine.Engine.collection" class="py-name" href="#" onclick="return doclink('link-17', 'collection', 'link-17');">collection</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">defer</tt><tt class="py-op">.</tt><tt class="py-name">Deferred</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-name">d</tt><tt class="py-op">.</tt><tt class="py-name">addCallback</tt><tt class="py-op">(</tt><tt id="link-18" class="py-name" targets="Function pyisis.gateway.executor_loop()=pyisis.gateway-module.html#executor_loop"><a title="pyisis.gateway.executor_loop" class="py-name" href="#" onclick="return doclink('link-18', 'executor_loop', 'link-18');">executor_loop</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-name">d</tt><tt class="py-op">.</tt><tt class="py-name">addErrback</tt><tt class="py-op">(</tt><tt id="link-19" class="py-name" targets="Function pyisis.gateway.handleError()=pyisis.gateway-module.html#handleError"><a title="pyisis.gateway.handleError" class="py-name" href="#" onclick="return doclink('link-19', 'handleError', 'link-19');">handleError</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt>  </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-name">reactor</tt><tt class="py-op">.</tt><tt class="py-name">callLater</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">d</tt><tt class="py-op">.</tt><tt class="py-name">callback</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">     </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="RestHttpChannel"></a><div id="RestHttpChannel-def"><a name="L141"></a><tt class="py-lineno">141</tt> <a class="py-toggle" href="#" id="RestHttpChannel-toggle" onclick="return toggle('RestHttpChannel');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyisis.gateway.RestHttpChannel-class.html">RestHttpChannel</a><tt class="py-op">(</tt><tt class="py-base-class">http</tt><tt class="py-op">.</tt><tt class="py-base-class">HTTPChannel</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RestHttpChannel-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RestHttpChannel-expanded"><a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-name">requestFactory</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name" targets="Class pyisis.gateway.RestRequestHandler=pyisis.gateway.RestRequestHandler-class.html"><a title="pyisis.gateway.RestRequestHandler" class="py-name" href="#" onclick="return doclink('link-20', 'RestRequestHandler', 'link-20');">RestRequestHandler</a></tt> </tt>
+</div><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="RestHttpFactory"></a><div id="RestHttpFactory-def"><a name="L144"></a><tt class="py-lineno">144</tt> <a class="py-toggle" href="#" id="RestHttpFactory-toggle" onclick="return toggle('RestHttpFactory');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyisis.gateway.RestHttpFactory-class.html">RestHttpFactory</a><tt class="py-op">(</tt><tt class="py-base-class">http</tt><tt class="py-op">.</tt><tt class="py-base-class">HTTPFactory</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RestHttpFactory-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RestHttpFactory-expanded"><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-name">protocol</tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name" targets="Class pyisis.gateway.RestHttpChannel=pyisis.gateway.RestHttpChannel-class.html"><a title="pyisis.gateway.RestHttpChannel" class="py-name" href="#" onclick="return doclink('link-21', 'RestHttpChannel', 'link-21');">RestHttpChannel</a></tt> </tt>
+</div><a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"> </tt>
+<a name="run"></a><div id="run-def"><a name="L147"></a><tt class="py-lineno">147</tt> <a class="py-toggle" href="#" id="run-toggle" onclick="return toggle('run');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.gateway-module.html#run">run</a><tt class="py-op">(</tt><tt class="py-param">engine</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="run-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="run-expanded"><a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-docstring">"Gateway&#180;s Runloop"</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt class="py-name">factory</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name" targets="Class pyisis.gateway.RestHttpFactory=pyisis.gateway.RestHttpFactory-class.html"><a title="pyisis.gateway.RestHttpFactory" class="py-name" href="#" onclick="return doclink('link-22', 'RestHttpFactory', 'link-22');">RestHttpFactory</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">    <tt class="py-comment"># hang data-structures in the factory</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment"># so protocol instances can find it.</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-name">factory</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="pyisis.engine" class="py-name" href="#" onclick="return doclink('link-23', 'engine', 'link-5');">engine</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="pyisis.engine" class="py-name" href="#" onclick="return doclink('link-24', 'engine', 'link-5');">engine</a></tt>  </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-25" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-25', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Variable pyisis.config.Config.SSH_PORT=pyisis.config.Config-class.html#SSH_PORT"><a title="pyisis.config.Config.SSH_PORT" class="py-name" href="#" onclick="return doclink('link-26', 'SSH_PORT', 'link-26');">SSH_PORT</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">twisted</tt><tt class="py-op">.</tt><tt class="py-name">cred</tt> <tt class="py-keyword">import</tt> <tt class="py-name">portal</tt><tt class="py-op">,</tt> <tt class="py-name">checkers</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">twisted</tt><tt class="py-op">.</tt><tt class="py-name">conch</tt> <tt class="py-keyword">import</tt> <tt class="py-name">manhole</tt><tt class="py-op">,</tt> <tt class="py-name">manhole_ssh</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">getManholeFactory</tt><tt class="py-op">(</tt><tt class="py-param">namespace</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">passwords</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">            <tt class="py-name">realm</tt> <tt class="py-op">=</tt> <tt class="py-name">manhole_ssh</tt><tt class="py-op">.</tt><tt class="py-name">TerminalRealm</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">            <tt class="py-keyword">def</tt> <tt class="py-def-name">getManhole</tt><tt class="py-op">(</tt><tt class="py-param">_</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-name">manhole</tt><tt class="py-op">.</tt><tt class="py-name">Manhole</tt><tt class="py-op">(</tt><tt class="py-name">namespace</tt><tt class="py-op">)</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">            <tt class="py-name">realm</tt><tt class="py-op">.</tt><tt class="py-name">chainedProtocolFactory</tt><tt class="py-op">.</tt><tt class="py-name">protocolFactory</tt> <tt class="py-op">=</tt> <tt class="py-name">getManhole</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">            <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">portal</tt><tt class="py-op">.</tt><tt class="py-name">Portal</tt><tt class="py-op">(</tt><tt class="py-name">realm</tt><tt class="py-op">)</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">            <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">registerChecker</tt><tt class="py-op">(</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                <tt class="py-name">checkers</tt><tt class="py-op">.</tt><tt class="py-name">InMemoryUsernamePasswordDatabaseDontUse</tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">passwords</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">            <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">manhole_ssh</tt><tt class="py-op">.</tt><tt class="py-name">ConchFactory</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">f</tt> </tt>
+</div><a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">        <tt class="py-name">reactor</tt><tt class="py-op">.</tt><tt class="py-name">listenTCP</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-27', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="pyisis.config.Config.SSH_PORT" class="py-name" href="#" onclick="return doclink('link-28', 'SSH_PORT', 'link-26');">SSH_PORT</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">                          <tt class="py-name">getManholeFactory</tt><tt class="py-op">(</tt><tt id="link-29" class="py-name"><a title="pyisis.engine" class="py-name" href="#" onclick="return doclink('link-29', 'engine', 'link-5');">engine</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="pyisis.engine.Engine.collection" class="py-name" href="#" onclick="return doclink('link-30', 'collection', 'link-17');">collection</a></tt><tt class="py-op">,</tt> <tt class="py-name">admin</tt><tt class="py-op">=</tt><tt class="py-string">'admin'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt>  <tt id="link-31" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-31', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Variable pyisis.config.Config.HTTP_PORT=pyisis.config.Config-class.html#HTTP_PORT"><a title="pyisis.config.Config.HTTP_PORT" class="py-name" href="#" onclick="return doclink('link-32', 'HTTP_PORT', 'link-32');">HTTP_PORT</a></tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">        <tt class="py-name">reactor</tt><tt class="py-op">.</tt><tt class="py-name">listenTCP</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-33', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="pyisis.config.Config.HTTP_PORT" class="py-name" href="#" onclick="return doclink('link-34', 'HTTP_PORT', 'link-32');">HTTP_PORT</a></tt><tt class="py-op">,</tt> <tt class="py-name">factory</tt><tt class="py-op">)</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">     </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">showBanner</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"PyISIS Cell"</tt><tt class="py-op">,</tt> <tt class="py-name">__version__</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Python"</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">version</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-35" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-35', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="pyisis.config.Config.HTTP_PORT" class="py-name" href="#" onclick="return doclink('link-36', 'HTTP_PORT', 'link-32');">HTTP_PORT</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt>  <tt class="py-string">"Gateway ready to handle HTTP requests at port %s"</tt><tt class="py-op">%</tt>\ </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">                  <tt id="link-37" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-37', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="pyisis.config.Config.HTTP_PORT" class="py-name" href="#" onclick="return doclink('link-38', 'HTTP_PORT', 'link-32');">HTTP_PORT</a></tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-39" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-39', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="pyisis.config.Config.SSH_PORT" class="py-name" href="#" onclick="return doclink('link-40', 'SSH_PORT', 'link-26');">SSH_PORT</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt>  <tt class="py-string">"Gateway ready to handle SSH requests at port %s"</tt><tt class="py-op">%</tt>\ </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                  <tt id="link-41" class="py-name"><a title="pyisis.config.Config" class="py-name" href="#" onclick="return doclink('link-41', 'Config', 'link-3');">Config</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="pyisis.config.Config.SSH_PORT" class="py-name" href="#" onclick="return doclink('link-42', 'SSH_PORT', 'link-26');">SSH_PORT</a></tt> </tt>
+</div><a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">    <tt class="py-name">reactor</tt><tt class="py-op">.</tt><tt class="py-name">callWhenRunning</tt><tt class="py-op">(</tt><tt class="py-name">showBanner</tt><tt class="py-op">)</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">    <tt class="py-name">reactor</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Function pyisis.gateway.run()=pyisis.gateway-module.html#run"><a title="pyisis.gateway.run" class="py-name" href="#" onclick="return doclink('link-43', 'run', 'link-43');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt><tt class="py-op">==</tt><tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">    <tt id="link-44" class="py-name"><a title="pyisis.gateway.run" class="py-name" href="#" onclick="return doclink('link-44', 'run', 'link-43');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyisis-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Sun Dec 16 20:28:06 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

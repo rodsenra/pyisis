@@ -1,0 +1,46 @@
+/* coloca o Selo de LILACS-EXPRESS */
+if v4 : 'LILACSEXPRESS' or v4 : 'LLXPEDT' then
+	'<table border="0" cellpadding="1" cellspacing="1" width="100%"><tr>
+	<td align="right"><a href="#" onclick="javascript:llxp_disclaimer()"><img src="/iah/online/P/image/selo.gif" border="0" name="express" align="absmiddle"></a><font face=verdana size="1">LILACS-Express</font></td>
+	</tr></table>',/,
+fi,
+
+
+'<font face=arial size=2>',
+
+if a(v805) then
+	/* CPO 12 - Titulo (nivel analitico) */
+	/* CPO 13 - Titulo Traduzido para o Ingles (nivel analitico) */
+	if p(v12) and v13<>'x' then
+		v12^*,
+		| / | v13^*'.'
+	else
+		v12^*
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel MONOGRAFICO */
+	if v06*0.1 = 'm' then
+		/* CPO 18 - Titulo */
+		/* CPO 19 - Titulo Traduzido para o Ingles (nivel monografico) */
+		/* CPO 21 - Volume (nivel monografico) */
+		if p(v18) then
+			(v18^*),
+			| / |v19^*".",
+			"."n19,
+			|-|V21
+		fi,
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel COLECAO (para manter compatibilidade com registros antigos) */
+	if v06 = 'c' then
+		/* CPO 25 - Titulo (nivel colecao) */
+		/* CPO 27 - Numero Total de Volumes (nivel colecao) */
+		if p(v25) then
+			(v25^*),
+			|. |v27| vol.|,/,"."n27
+		fi,
+	fi,
+else
+ @fixtures/mailhtm.pft
+fi,
+'</font>',/,

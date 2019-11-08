@@ -1,0 +1,108 @@
+* create adequate components and versions in JIRA
+
+* create automatic tests
+  * Generate exception when building a MasterFile, the .xref
+    is not found. 
+
+* delete record
+
+* add new record
+  - create from dict
+
+* processing format language 
+  - comple grammar support
+  - ensure multi-threadsafe
+
+* support IsisScript
+
+#------ Reach Febrary landmark -----------------
+
+* try coupling with Guilda's web_winisis
+
+* improve XML formatting 
+* support XML format for master files
+  - Investigate Fedora's Model
+  - accomodate full-text (OpenOffice files) 
+
+* explore indexing Engines (Lucene/Xapian/Other)
+  - handle inverted files
+
+
+
+* adjust documentation to format specified by
+  http://epydoc.sourceforge.net/manual-epytext.html
+
+* use twisted.python.log instead of python logger
+
+
+
+* use more friendly configuration file
+  - pass it in the commandline
+
+* equalize commandline options with gateway options
+
+* optimize record reading (lazy loading fields dict)
+
+* optimize MasterField memoizing subfields dict
+
+* support ISO format for master files
+
+
+
+* smart read xrf: check filesize and decide if load it whole
+                  or lazy load it.
+
+* implement plugin architecture
+
+
+
+* add missing parameters to pymx
+  pag 23 do CISIS Conceitos basicos-pt
+
+* rebuild the .xref (if in the console
+  we can ask if the user wants it to be done).
+
+* i18n implementation
+
+* make WSGI compliant implementation
+
+* support collection metadata
+
+* In windows make an Isis-cell a windows service
+
+ CRUD master file
+ ----------------
+  * create method that extracts the combined data dictionary of the fields in
+    the master file = list data dictionary
+  * create routine to create records and master files
+  * create routine to erase records and to pack the master file
+  * create inverted file indexing structures
+
+  * improve error handling (missing mst, xrf, etc)
+
+  * analyse/explore the possibility of working with zipped records
+
+
+research
+--------
+
+    * specialize BaseStorage in ZODB (oid map to opaque data with 8 byte strings)
+      or create a ISIS adapter, just like a SGBDR adapter
+    * Or create an attribute storage for AT types ?
+
+
+Old requirements
+================
+
+ - providing as a minimum the current functions available in
+    * WINISIS, iAH? and MetaIAH? interfaces
+ - ISIS NBP will incorporate the ISIS Format Language,
+                 including the CISIS extensions,
+                 * the CISIS field update language and
+                 * an ISIS compatible search language.
+
+   The standard release will be accompanied by a test bibliographic 
+   data base in MARC21 format,
+   fully implemented, including data structured in both traditional 
+   ISIS field-subfield tagged
+   and XML element attribute structure.

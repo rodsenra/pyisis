@@ -1,0 +1,47 @@
+Windows
+=======
+
+Requirements
+------------ 
+These are step-by-step install  instructions:
+
+1) Install Python-2.4.4 or higher
+   Run python-2.4.4.msi
+
+2) Install pyreadline-1.5.win32.exe
+   Select appropriate Python version during install
+   if more than one version of Python is installed.
+
+3) Install ipython-0.8.2.win32.exe
+   Select appropriate Python version during install
+   if more than one version of Python is installed.
+
+4) Install ctypes-1.0.2.win32-py2.4.exe
+   (If Python is 2.5 or higher you must skip this step,
+    because ctypes will be pre-installed)
+
+5) Install pycrypto-2.0.1.win32-py24.exe
+
+6) Install pyOpenSSL-0.6.win32-py24.exe
+
+7) Install Twisted_NoDocs-2.5.0.win32-py24.exe
+
+
+PyIsis Cell
+-----------
+
+8) Make sure c:\Python24 (or the directory where you chose
+   to install Python) is in the PATH, as well as c:\Python24\Scripts.
+   To check visit: 
+   "Control Panel/System/Advanced/Environment Variables"
+   add the path c:\Python24 to the end of PATH.
+
+9) Unzip pyisis.zip to some directory.
+
+10) From a interactive shell (cmd.exe), change into the
+    directory created in step 9), and execute:
+
+    python setup.py install
+
+
+ 

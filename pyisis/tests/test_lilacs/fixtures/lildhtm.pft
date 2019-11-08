@@ -1,0 +1,452 @@
+/* Montagem do icone Lilaces-Express */
+if v4 : 'LILACSEXPRESS' or v4 : 'LLXPEDT' then
+ '<table border="0" cellpadding="1" cellspacing="1" width="100%"><tr>
+   <td align="right" width="18%" valign="baseline"><font size="2" face="Arial"><b>Id:</b></td>
+   <td valign="baseline"><font face="arial" size="2">',f(val(v2),1,0),'</font></td>
+   <td align="right"><a href="#" onclick="javascript:llxp_disclaimer()"><img src="/iah/online/P/image/selo.gif" border="0" name="express" align="absmiddle"></a><font face="verdana" size="1">LILACS-Express</font></td>
+ </tr></table>',/,
+fi,
+
+
+if a(v805) then
+   '<table border="0" width="100%">',
+   proc('d9001d9002d9003',
+	/* CPO 02 - id */
+        if v4 : 'LILACSEXPRESS' or v4 : 'LLXPEDT' then
+	else
+ 		'a9001[Id]',
+		'a9002Id:',
+		'a9003',if v2:'lxp' or v5003^* = 'PAHO' or v5003^* = 'WHOLIS' then v2/ else f(val(v2),1,0) fi,/,'',
+	fi,
+	/* CPO 10 - Autor (analitica)	*/
+	/* Sub r - Responsabilidade	*/
+	if p(v10) then
+		'a9001[Au]',
+		'a9002Autor:',
+		'a9003',(
+			v10^*,
+			|(|v10^r|)|,
+			if iocc < nocc(v10) then '; ' else '.' fi,
+		),'',
+	fi,
+	/* CPO 11 - Autor institucional (analitica) */
+	if p(v11^p) then
+		'a9001[Au]',
+		'a9002Autor:',
+		'a9003',(v11^p+|; |"."),/,'',
+	else,	if p(v11^*) then
+		'a9001[Au]',
+		'a9002Autor:',
+		'a9003',(v11^*+|; |"."),/,'',
+	fi,fi,
+	/* CPO 12 - Titulo (analitica) */
+	/* CPO 13 - Titulo em ingles (analitica) */
+	/* Titulo traduzido eh apresentado desde que não seja 'X' */
+/*
+        if p(v12) and (p(v13) and s(mpu,v13,mpl)<>'X') then
+                'a9001Título:',
+                'a9002',
+                        (v12^*+| / |),
+                        | / | v13^*,
+                        "."n13,/,
+                '',
+        else,   if p(v12) and (a(v13) or s(mpu,v13,mpl)='X') then
+                'a9001Título:',
+                'a9002',(v12^*+| / |),'',
+        fi,fi,
+
+*/
+
+	if p(v12) and (p(v13) and s(mpu,v13,mpl)<>'X') then
+		'a9001[Ti]',
+		'a9002Título:',
+		'a9003',
+			(v12^*+| / |),
+			| / |v13^*,
+			"."n13,/,
+		'',
+	else,	if p(v12) and (a(v13) or s(mpu,v13,mpl)='X') then
+			'a9001[Ti]',
+			'a9002Título:',
+			'a9003',(v12^*+| / |),'',
+	fi,fi,
+
+	/* CPO 06 - Nivel de Tratamento */
+	/* Analitica de Seriado */
+	if v06 = 'as' then
+		/* CPO 30 - Titulo (nivel serie) */
+		/* CPO 31 - Volume (nivel serie) */
+		/* CPO 32 - Numero do Fasciculo (nivel serie) */
+		/* CPO 14 - Paginas (nivel analitico) */
+		/* CPO 64 - Data de Publicacao */
+		/* CPO 38 - Informacao Descritiva */
+		if p(v30) then
+			'a9001[Fo]',
+			'a9002Fonte:',
+                        'a9003',if l(['fixtures/ntitle']v30)>0 then,'<a href="http://portal.revistas.bvs.br/transf.php?xsl=xsl/titles.xsl&xml=http://catserver.bireme.br/cgi-bin/wxis1660.exe/?IsisScript=../cgi-bin/catrevistas/catrevistas.xis|database_name=TITLES|list_type=title|cat_name=ALL|from=1|count=50&lang=pt&comefrom=home&home=false&task=show_magazines&request_made_adv_search=false&lang=pt&show_adv_search=false&help_file=/help_pt.htm&connector=ET&search_exp='replace(v30,'&','%26')'" target="Revista">',v30,if v65.4>=ref(['fixtures/ntitle']l(['fixtures/ntitle']v30),v230^a) then ref(['fixtures/ntitle']l(['fixtures/ntitle']v30),| = |v235) fi,'</a>;',else v30|;|,fi,
+				v31,
+				|(|v32|)|,
+				|:|v14^*,|-|v14^l,
+				|, |v64|. |,
+                                if p(v38^b) then,
+                                v38^b+|, |".",/,
+                                else,
+                                v38+|, |".",/,
+                                fi,
+                                if v113[1]='u' then '- SEPARATA' fi,
+			'',
+		fi,
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Analitica de Monografia */
+	if v06 : 'am' then
+		/* CPO 16 - Autor (nivel monografico) */
+		if p(v16^*) then,
+			'a9001[Fo]',
+			'a9002Fonte:',
+			'a9003In: ',(v16^*+|; |"."),
+		fi,
+		/* CPO 17 - Autor Coletivo (nivel monografico) */
+                /* alterado 23/10/2006 por causa da REPIDISCA */
+                if p(v17) and a(v16) then
+		  if p(v17^p) then
+			'a9001[Fo]',
+			'9002Fonte:',
+			'a9003In: ',(v17^p+|; |"."),
+		  else
+			'a9001[Fo]',
+			'a9002Fonte:',
+			'a9003In: ',(v17^*+|; |"."),
+		  fi,
+                fi,
+		/* CPO 14 - Paginas (nivel analitico) */
+		/* CPO 18 - Titulo (nivel monografico) */
+		/* CPO 30 - Titulo (nivel serie) */
+		/* CPO 31 - Volume (nivel serie) */
+		/* CPO 32 - Numero do fasciculo (nivel serie) */
+		/* CPO 38 - Informacao Descritiva */
+		/* CPO 62 - Editora */
+		/* CPO 64 - Data de publicacao */
+		/* CPO 66 - Cidade de Publicacao */
+		/* CPO 68 - Simbolo */
+		if p(v16) or p(v17) then
+                                (" "v18^*+| / |". "),
+				v66', ',
+				(v62+|;|)', ',
+				v64'. ',
+				|p.|v14^*,|-|v14^l,
+                                if p(v38^b) then,
+				|, |v38^b'. ',/,
+                                else,
+				|, |v38'. ',/,
+                                fi,
+				|(|v30,
+				|, |v31,
+				|, |v32,
+				if p(v30) then ').' fi,
+				| (|v68|)|,/, 
+			'',
+		fi, 
+	fi,  
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel Monografico */
+	if v06*0.1 = 'm' then
+		/* CPO 16 - Autor (nivel monografico) */
+		if p(v16^*) then
+			'a9001[Au]',
+			'a9002Autor:',
+			'a9003',(
+				v16^*,
+				|(|v16^r|)|,
+				if iocc < nocc(v16) then '; ' else '.' fi,
+				),/,
+			'',
+		fi,
+		/* CPO 17 - Autor Coletivo (nivel monografico) */
+                /* alterado 23/10/2006 por causa da REPIDISCA */
+                if p(v17) and a(v16) then
+		  if p(v17^p) then
+			'a9001[Au]',
+			'a9002Autor:',
+			'a9003',(v17^p+|; |),/,'',
+		  else
+			'a9001[Au]',
+			'a9002Autor:',
+			'a9003',(v17^*+|; |'.'),/,'',
+		  fi,
+                fi,
+		/* CPO 18 - Titulo (nivel monografico) */
+		/* CPO 19 - Titulo Traduzido para o Ingles (nivel monografico) */
+		/* CPO 21 - Volume (nivel monografico) */
+		if p(v18) then
+			'a9001[Ti]',
+			'a9002Título:',
+			'a9003',
+                                (v18^*+| / |),
+				" / "v19^*,'.',
+				"-"V21,/,
+			'',
+		fi,
+		/* CPO 66 - Cidade de Publicacao */
+		/* CPO 62 - Editora */
+		/* CPO 64 - Data de Publicacao */
+		/* CPO 20 - Paginas (nivel monografico) */
+		/* CPO 38 - Informacao Descritiva */
+		/* CPO 30 - Titulo (nivel serie) */
+		/* CPO 31 - Volume (nivel serie) */
+		/* CPO 32 - Numero do Fasciculo (nivel serie) */
+		/* CPO 68 - Simbolo */
+		if p(v66) then
+			'a9001[Fo]',
+			'a9002Fonte:',
+			'a9003',
+				v66,'; ',
+				(v62+|;|),'; ',
+				v64,'. ',
+				v20| p. |,
+                                if p(v38^b) then,
+				v38^b+|, |".",/,
+                                else,
+				v38+|, |".",/,
+                                fi,
+				|(|v30,
+				|, |v31,
+				|, |v32,
+				if p(v30) then ').' fi,
+				| (|v68|).|,/,
+			'',
+		fi,
+		/* CPO 30 - Titulo (nivel serie) */
+		/* CPO 31 - Volume (nivel serie) */
+		/* CPO 32 - Numero do Fasciculo (nivel serie) */
+		/* CPO 68 - Simbolo */
+		/*if p(v30) then
+			'a9001 ',
+			'a9002 ',
+			'a9003',
+				|(|v30,
+				|, |v31,
+				|, |v32,
+				').'|(|v68|).|,/,
+			'',
+		fi,*/
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel COLECAO (para manter compatibilidade com registros antigos) */
+	if v06 = 'c' then
+		/* CPO 23 - Autor (nivel colecao) */
+		if p(v23^*) then
+			'a9001[Au]',
+			'a9002Autor:',
+			'a9003',(v23^*+|;|),/,'',
+		fi,
+		/* CPO 24 - Autor Coletivo (nivel colecao) */
+		if p(v24^p) then
+			'a9001[Au]',
+			'a9002Autor:',
+			'a9003',(v24^p+|; |),/,'',
+		else,	if p(v24^*) then
+			'a9001[Au]',
+			'a9002Autor:',
+			'a9003',(v24^*+|; |),/,'',
+		fi,fi,
+		/* CPO 25 - Titulo (nivel colecao) */
+		/* CPO 27 - Numero Total de Volumes (nivel colecao) */
+		if p(v25) then
+			'a9001[Ti]',
+			'a9002Título:',
+			'a9003',
+				(v25^*),
+				|. |v27| vol.|,/,
+			'',
+		fi,
+		/* CPO 66 - Cidade de Publicacao */
+		/* CPO 62 - Editora */
+		/* CPO 64 - Data de Publicacao */
+		/* CPO 20 - Total de Paginas */
+		/* CPO 38 - Informacao Descritiva */
+		if p(v66) then
+			'a9001[Fo]',
+			'a9002Fonte:',
+			'a9003',
+				v66'; ',
+				(v62+|;|)'; ',
+				v64'. ',
+				v20| p. |,
+                                if p(v38^b) then,
+				v38^b'.',/,
+                                else,
+				v38'.',/,
+                                fi,
+			'',
+		fi,
+	fi,
+
+        if p(v40) then
+           'a9001[La]','a9002Idioma:','a9003'(v40+|; |"."),/,'',
+        else if p(v12^i) then
+           'a9001[La]','a9002Idioma:','a9003'(v12^i+|; |"."),/,'',
+        else if p(v18^i) then
+           'a9001[La]','a9002Idioma:','a9003'(v18^i+|; |"."),/,'',
+        else if p(v25^i) then
+           'a9001[La]','a9002Idioma:','a9003'(v25^i+|; |"."),/,'',
+        fi,fi,fi,fi,
+
+	/* CPO 50 - Tese e Dissertacao - Instituicao a qual se apresenta */
+	/* CPO 51 - Tese e Dissertacao - Titulo Academico */
+	if p(v50) then
+		'a9001[Te]',
+		'a9002Tese:',
+		'a9003',
+			|Apresentada a |v50,
+			| para obtenção do grau de |v51^*|.|,/,
+		'',
+	fi,
+	/* CPO 53 - Nome da Conferencia (Evento) */
+	/* CPO 56 - Conferencia - Cidade */
+	/* CPO 54 - Conferencia - Data */
+	if p(v53) then
+		'a9001[Co]',
+		'a9002Conferência:',
+		'a9003',
+			|Apresentado em: |,
+			v53|, |,
+			v56|, |,
+			v54|.|,/,
+		'',
+	fi,
+	/* CPO 58 - Projeto - Instituicao Patrocinadora */
+	/* CPO 59 - Nome do Projeto */
+	/* CPO 60 - Projeto - Numero */
+	if p(v58) then
+		'a9001[Pr]',
+		'a9002Projeto:',
+		'a9003',
+			(v58+|; |,'. '),
+			v59|. |,
+			v60|. |,/,
+		'',
+	fi,
+	/* CPO 68 - Simbolo */
+	if p(v68) then
+		'a9001[Si]',
+		'a9002Símbolo:',
+		'a9003',v68".",/,'',
+	fi,
+	/* CPO 83 - Resumo */
+	if p(v83) then
+		'a9001[Ab]',
+		'a9002Resumo:',
+		'a9003',(v83^*+|<br>|,'<br>',/),'',
+	fi,
+
+	/* CPO 870 - Temas */
+        /* o v5000^d path_data */
+        /*if v5000^d : '/bvsSP/' then
+                ref(['TX']mfn,if p(v870) then
+                'a9001[Te]',
+                'a9002Temas:',
+                'a9003',(v870,'<br>'),'',
+                fi),
+        fi,
+        */
+	/* CPO 87 - Descritores Primarios */
+	if p(v87^d) then
+		if p(v87^d) or p(v87^s) then
+			'a9001[Mh]',
+			'a9002Descritores:',
+                        'a9003',(|<A Href="#" onclick="javascript:return showDecsDetail('|v87^d|') ">|v87^d|</a>|,|<font color="blue">/</font><A Href="#" onclick="javascript:return showDecsDetail('|v87^s|')">|v87^s*1|</a>|,'<br>',),'',
+			/*'a9003',(|<A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v87^d|&show_tree_number=T" target="Descritor">|v87^d|</a>|,|<font color="blue">/</font><A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v87^s|&show_tree_number=T" target="Descritor">|v87^s*1|</a>|,'<br>',),'',*/
+                fi,
+	else,	if p(v87^*) or p(v87^q) then
+		'a9001[Mh]',
+		'a9002Descritores:',
+                'a9003',(|<A Href="#" onclick="javascript:return showDecsDetail('|v87^*|')">|v87^*|</a>|,|<font color="blue">/</font><A Href="#" onclick="javascript:return showDecsDetail('|v87^q|')">|v87^q*1|</a>|,'<br>',),'',
+		/* 'a9003',(|<A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v87^*|&show_tree_number=T" target="Descritor">|v87^*|</a>|,|<font color="blue">/</font><A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v87^q|&show_tree_number=T" target="Descritor">|v87^q*1|</a>|,'<br>',),'',*/
+        fi,fi,
+	/* CPO 88 - Descritores Secundarios */
+	if p(v88^d) then
+		if p(v88^d) or p(v88^s) then
+			'a9001 ',
+			'a9002 ',
+                        'a9003-',(|<A Href="#" onclick="javascript:return showDecsDetail('|v88^d|')">|v88^d|</a>|,|<font color="blue">/</font><A Href="#" onclick="javascript:return showDecsDetail('|v88^s|')">|v88^s*1|</a>|,'<br>',),'',
+                        /*'a9003-',(|<A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v88^d|&show_tree_number=T" target="Descritor">|v88^d|</a>|,|<font color="blue">/</font><A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v88^s|&show_tree_number=T" target="Descritor">|v88^s*1|</a>|,'<br>',),'',*/
+		fi,
+	else,	if p(v88^*) or p(v88^q) then
+		'a9001 ',
+		'a9002 ',
+                'a9003-',(|<A Href="#" onclick="javascript:return showDecsDetail('|v88^*|')">|v88^*|</a>|,|<font color="blue">/</font><A Href="#" onclick="javascript:return showDecsDetail('|v88^q|')" >|v88^q*1|</a>|,'<br>',),'',
+                /*'a9003-',(|<A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v88^*|&show_tree_number=T" target="Descritor">|v88^*|</a>|,|<font color="blue">/</font><A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v88^q|&show_tree_number=T" target="Descritor">|v88^q*1|</a>|,'<br>',),'',*/
+	fi,fi,
+	/* CPO 76 - Descritor Pre-codificado */
+	if v76*0.1='^' then
+		if p(v76^p) then
+			'a9001[Li]',
+			'a9002Limites:',
+                        'a9003',(|<A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v76^p|&show_tree_number=T" target="Descritor">|v76^p|</a>|,v76^p,'<br>',),'',
+		fi,
+	else,	if p(v76^*) then
+			'a9001[Li]',
+			'a9002Limites:',
+                        'a9003',(|<A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v76^*|&show_tree_number=T" target="Descritor">|v76^*|</a>|,v76^p,'<br>',),'',
+	fi,fi,
+
+	/* CPO 71 - Tipo de Publicacao */
+	if p(v71) then
+		'a9001[]',
+		'a9002Tipo de Publicação:',
+                'a9003',(|<A Href="http://decs.bvs.br/cgi-bin/wxis1660.exe/decsserver/?IsisScript=../cgi-bin/decsserver/decsserver.xis&task=exact_term&previous_page=homepage&interface_language=p&search_language=p&search_exp=|v71^*|&show_tree_number=T" target="Descritor">|v71^*|</a>|,'<br>',),'',
+	fi
+	/* CPO 1 - Codigo do Centro */
+	/* CPO 3 - Localizacao do Documento */
+
+
+/* Localizacao com LINK */
+
+        if p(v1) then
+                'a9002Responsável:',
+                'a9003',
+                 if v6:'as' or nocc(v1) > 1 or l(['fixtures/MAIL']v1^*)=0
+                   then
+                      (v1^*,ref(['fixtures/MAIL']l(['fixtures/MAIL']v1^*)," - "v690),'<br>')
+                   else
+                       if l(['fixtures/MAIL']v1^*)>0 then,
+                          if v5003^* = 'REPIDISCA' then,
+                             |<A Href="http://www.bireme.br/cgi-bin/wxislind.exe/iah/online/?IsisScript=iah/iah.xis&nextAction=lnk&base=MAILREP&lang=p&exprSearch=|v1|&" target="_blank">|v1|</a>|,ref(['fixtures/MAIL']l(['fixtures/MAIL']v1^*)," - "v690)
+                          else
+                             |<A Href="http://www.bireme.br/cgi-bin/wxislind.exe/iah/online/?IsisScript=iah/iah.xis&nextAction=lnk&base=MAILLIL&lang=p&exprSearch=|v1|&" target="_blank">|v1|</a>|,ref(['fixtures/MAIL']l(['fixtures/MAIL']v1^*)," - "v690)
+                          fi,
+                       fi,
+                 fi,
+                 mpl,'',
+        fi,
+
+
+/* Fim da Localizacao com LINK */
+
+        if p(v3) then
+                'a9001',
+                'a9002',
+                'a9003',
+                 mhl,(v3+|; |),mpl,'',
+        fi,
+
+
+       /* CPO 8 - Suporte Eletronico */
+       if s(mpu,v8,mpl):'CD-ROM' or s(mpu,v8,mpl):'DISQUETE' or s(mpu,v8,mpl):'FLOPPY' then
+               'a9001[Me]',
+               'a9002Meio:',
+               'a9003',(
+                if s(mhu,v8^*,mpl) = 'INTERNET' then,
+                else
+                       v8^*, 
+			| / |v8^i,'<br>',/,
+                fi,
+               ),'',
+       fi,
+       ),
+   @fixtures/htmtab2.pft,
+   '</table>',
+fi,
+mpl,if p(v805) then @fixtures/mailhtm.pft fi,
+'<p>',/,

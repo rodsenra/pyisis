@@ -1,0 +1,258 @@
+# Portuguese translation of PACKAGE.
+# Copyright (C) 2008 ORGANIZATION
+# joao <EMAIL@ADDRESS>, 2008.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-25 10:06+BRT\n"
+"PO-Revision-Date: 2008-07-25 10:13-0300\n"
+"Last-Translator: joao <EMAIL@ADDRESS>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: action_registry.py:77
+msgid "<h3>@pft must be called after record resource not %s</h3>"
+msgstr "<h3>@pft deve ser chamada após registro %s</h3>"
+
+#: action_registry.py:95
+msgid "No resource found!"
+msgstr "Recurso não encontrado!"
+
+#: action_registry.py:144
+msgid "Action range requires at least one parameter."
+msgstr "Ação faixa exige pelo menos um parâmetro."
+
+#: ast.py:166
+msgid "Invalid parameter for boolean function."
+msgstr "Parâmtro inválido para função booleana."
+
+#: ast.py:168
+msgid "Invalid boolean function named %s"
+msgstr "Função booleana %s inválida"
+
+#: ast.py:428
+msgid "Unexpected type %s"
+msgstr "Tipo %s inesperado"
+
+#: engine.py:59
+msgid "Failed to create collection %s: %s"
+msgstr "Falha criando coleção %s: %s"
+
+#: engine.py:62
+msgid "Unexpected error while processing %s: %s"
+msgstr "Erro inexperado processando %s: %s"
+
+#: engine.py:118
+msgid "Welcome to ISIS-NBP Cell %s Interactive Console\n"
+msgstr "Bem-vindo para Console Interativo Célula ISIS-NBP %s\n"
+
+#: engine.py:120
+msgid ""
+"Use the console to test and inspect the collections.\n"
+"\n"
+msgstr ""
+"Use o console para testar e inspecionar as coleções\n"
+"\n"
+
+#: engine.py:121
+msgid "Type 'collection' to see a dictionary with all available collections.\n"
+msgstr ""
+"Tecle 'collection' para ver um dicionário com todas as coleções "
+"disponíveis.\n"
+
+#: engine.py:122
+msgid "Type '<Ctrl-D>' or 'exit()' followed by '<enter>' to quit.\n"
+msgstr "Tecle '<Ctrl-D>' or 'exit()' seguido por '<enter>' para sair.\n"
+
+#: engine.py:140
+msgid "The available collections are: %s\n"
+msgstr "As coleções disponíveis são: %s\n"
+
+#: engine.py:142
+msgid "Closing ISIS-NBP Interactive Python Console\n"
+msgstr "Fechando Console Python Interativo ISIS-NBP\n"
+
+#: error_messages.py:15 error_messages.py:19
+msgid "ERROR: config file %s with invalid entry: %s.\n"
+msgstr "Erro: arquivo de configuração %s com entrada %s inválida %s\n"
+
+#: error_messages.py:16
+msgid "Expecting <typename>,<path>.\n"
+msgstr "Experado <typename>,<path> \n"
+
+#: error_messages.py:20
+msgid "Expecting True or False.\n"
+msgstr "Esperado True ou False. \n"
+
+#: error_messages.py:23
+msgid "ERROR: config file %s with invalid encoding entry: %s.\n"
+msgstr ""
+"Erro: arquivo de configuração %s com entrada de encoding inválida: %s.\n"
+
+#: error_messages.py:24
+msgid "This codec is either not registered or it is spelled incorrectly.\n"
+msgstr "Este codec não foi registrado ou está incorreto.\n"
+
+#: files.py:56
+msgid "Opening file %s for collection %s"
+msgstr "Abrindo arquivo %s para coleção %s"
+
+#: files.py:62
+msgid "Failed to open %s: %s"
+msgstr "Falha abrindo %s: %s"
+
+#: files.py:65
+msgid "Collection %s with databases: %s"
+msgstr "Coleção %s com banco de dados: %s"
+
+#: files.py:83
+msgid "%s is not an attribute of the collection %s"
+msgstr "%s não é um atributo da coleção %s"
+
+#: files.py:120
+msgid "Empty %s file"
+msgstr "Arquivo %s vazio"
+
+#: files.py:376
+msgid "%s (next mfn:%s, type:%s) in %s"
+msgstr "%s (próximo mfn:%s, tipo:%s) em %s"
+
+#: files.py:435
+msgid "Not implemented xrf handling of invalid records."
+msgstr "Não implementado manipulação de registros inválidos xrf "
+
+#: files.py:535
+msgid "Asked to undelete record flagged as %s"
+msgstr "Perguntar para apagar registro marcado como %s"
+
+#: gateway.py:113
+msgid "Gateway ready to handle HTTP requests at port %s"
+msgstr "Gateway pronto para tratar requisições HTTP na porta %s"
+
+#: gateway.py:115
+msgid "Gateway ready to handle SSH requests at port %s"
+msgstr "Gateway pronto para tratar requisições SSH na porta %s"
+
+#: lexer.py:120
+msgid "Invalid repeatable literal {%s}"
+msgstr "Literal com repetição inválida {%s}"
+
+#: lexer.py:148
+msgid "Invalid conditional literal {%s}"
+msgstr "Condição literal inválida {%s}"
+
+#: lexer.py:177
+msgid "Invalid inconditional literal {%s}"
+msgstr "Literal incondicional inválida {%s}"
+
+#: lexer.py:279
+msgid "Invalid field expression {%s}"
+msgstr "Campo de expressão inválida {%s}"
+
+#: lexer.py:297
+msgid "Value is not recognised as a valid number"
+msgstr "Valor não reconhecido como número válido"
+
+#: lexer.py:310
+msgid "Word %s is not recognised as a valid keyword"
+msgstr "Palavra %s não foi reconhecida como uma plavra-chave"
+
+#: lexer.py:315
+msgid "Illegal character '%s' at position %d in expression {%s}"
+msgstr "Caracter ilegal '%s' na posição %d na expressão {%s} "
+
+#: parser.py:370
+msgid "Syntax error at '%s'. Type: %s"
+msgstr "Erro de sintaxe em '%s'. Tipo: %s"
+
+#: parser.py:372
+msgid "Syntax error. Empty production."
+msgstr "Erro de sintaxe, produção vazia."
+
+#: records.py:361
+msgid "Tried to save record flagged as invalid."
+msgstr "Tentou salvar registro marcado como inválido."
+
+#: scripts/list.py:60
+msgid "Elapsed time:"
+msgstr "Tempo decorrido:"
+
+#: tools/pymx.py:54
+msgid "Specify the path to the configuration file"
+msgstr "Informe o caminho do arquivo de configuração"
+
+#: tools/pymx.py:58
+msgid "Specify the path to the master file"
+msgstr "Informe o caminho do arquivo master"
+
+#: tools/pymx.py:62
+msgid "Specify the path to the output master file"
+msgstr "Informe o caminho do arquivo master de saída"
+
+#: tools/pymx.py:66
+msgid "Start in server mode."
+msgstr "Iniciar em modo servidor"
+
+#: tools/pymx.py:70
+msgid "Browse the the master file interactively"
+msgstr "Inspecionar o arquivo master interativamente"
+
+#: tools/pymx.py:74
+msgid "List the contents of the master file"
+msgstr "Lista o conteúdo do arquivo master"
+
+#: tools/pymx.py:78
+msgid "Profile the execution of --list option"
+msgstr "Perfil de execução da opção --list"
+
+#: tools/pymx.py:82
+msgid "Convert master file contents to XML"
+msgstr "Converte conteúdo arquivo master para XML"
+
+#: tools/pymx.py:86
+msgid "Interactive mode of operation"
+msgstr "Modo interativo de operação"
+
+#: tools/pymx.py:90
+msgid "Prints current version"
+msgstr "Imprime versão atual"
+
+#: tools/pymx.py:94
+msgid "Dumps the control record"
+msgstr "Imprime o registro de controle"
+
+#: tools/pymx.py:98
+msgid "Copy inputdb into outputdb"
+msgstr "Copia inputdb em outputdb"
+
+#: tools/pymx.py:132
+msgid "File %s does not exist or is inaccessible."
+msgstr "Arquivo %s não existe ou inacessível."
+
+#: tools/pymx.py:163
+msgid "Use -m or --inputdb to set input database."
+msgstr "Utilize -m ou --inputdb para marcar banco de dados de entrada."
+
+#: tools/pymx.py:166
+msgid "Use -o or --outputdb to set output database."
+msgstr "Utilize -o ou --outputdb para marcar banco de dados de saída"
+
+#: web/manage.py:8
+msgid ""
+"Error: Can't find the file 'settings.py' in the directory containing %r. It "
+"appears you've customized things.\n"
+"You'll have to run django-admin.py, passing it your settings module.\n"
+"(If the file settings.py does indeed exist, it's causing an ImportError "
+"somehow.)\n"
+msgstr ""
+"Erro: Arquivo 'settings.py' não encontrado no diretório %r. Aparentemente "
+"você customizou alguns parâmetros.\n"
+"É necessário executar django-admin.py, passando seu módulo de configuração.\n"
+"(Se o arquivo settings.py existe, este está causando um erro de "
+"importação.)\n"
+

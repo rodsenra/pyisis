@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyisis.views</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyisis-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyisis-module.html">Package&nbsp;pyisis</a> ::
+        Module&nbsp;views
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyisis.views-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyisis.views-module.html">Module pyisis.views</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">Auxiliary routines for displaying and formatting data.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable pyisis.action_registry.__updated__=pyisis.action_registry-module.html#__updated__,Variable pyisis.engine.__updated__=pyisis.engine-module.html#__updated__,Variable pyisis.files.__updated__=pyisis.files-module.html#__updated__,Variable pyisis.format.__updated__=pyisis.format-module.html#__updated__,Variable pyisis.gateway.__updated__=pyisis.gateway-module.html#__updated__,Variable pyisis.records.__updated__=pyisis.records-module.html#__updated__,Variable pyisis.tools.pymx.__updated__=pyisis.tools.pymx-module.html#__updated__,Variable pyisis.views.__updated__=pyisis.views-module.html#__updated__"><a title="pyisis.action_registry.__updated__
+pyisis.engine.__updated__
+pyisis.files.__updated__
+pyisis.format.__updated__
+pyisis.gateway.__updated__
+pyisis.records.__updated__
+pyisis.tools.pymx.__updated__
+pyisis.views.__updated__" class="py-name" href="#" onclick="return doclink('link-0', '__updated__', 'link-0');">__updated__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"2007-02-15"</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable pyisis.action_registry.__created__=pyisis.action_registry-module.html#__created__,Variable pyisis.engine.__created__=pyisis.engine-module.html#__created__,Variable pyisis.files.__created__=pyisis.files-module.html#__created__,Variable pyisis.format.__created__=pyisis.format-module.html#__created__,Variable pyisis.gateway.__created__=pyisis.gateway-module.html#__created__,Variable pyisis.records.__created__=pyisis.records-module.html#__created__,Variable pyisis.tools.pymx.__created__=pyisis.tools.pymx-module.html#__created__,Variable pyisis.views.__created__=pyisis.views-module.html#__created__"><a title="pyisis.action_registry.__created__
+pyisis.engine.__created__
+pyisis.files.__created__
+pyisis.format.__created__
+pyisis.gateway.__created__
+pyisis.records.__created__
+pyisis.tools.pymx.__created__
+pyisis.views.__created__" class="py-name" href="#" onclick="return doclink('link-1', '__created__', 'link-1');">__created__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"2007-01-25"</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-name">__author__</tt>  <tt class="py-op">=</tt> <tt class="py-string">"Rodrigo Senra &lt;rodsenra@gpr.com.br&gt;"</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="list_all"></a><div id="list_all-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="list_all-toggle" onclick="return toggle('list_all');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.views-module.html#list_all">list_all</a><tt class="py-op">(</tt><tt class="py-param">master_file</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="list_all-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="list_all-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-docstring">"""Dump all records at once to the standard output stream.</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">rec</tt> <tt class="py-keyword">in</tt> <tt id="link-2" class="py-name" targets="Variable pyisis.format.master_file=pyisis.format-module.html#master_file"><a title="pyisis.format.master_file" class="py-name" href="#" onclick="return doclink('link-2', 'master_file', 'link-2');">master_file</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">rec</tt><tt class="py-op">.</tt><tt class="py-name">mfn</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">rec</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> </tt>
+</div><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="dump_xml"></a><div id="dump_xml-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="dump_xml-toggle" onclick="return toggle('dump_xml');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.views-module.html#dump_xml">dump_xml</a><tt class="py-op">(</tt><tt class="py-param">master_file</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="dump_xml-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="dump_xml-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-docstring">"""Dump all records as a XML file</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">rec</tt> <tt class="py-keyword">in</tt> <tt id="link-3" class="py-name"><a title="pyisis.format.master_file" class="py-name" href="#" onclick="return doclink('link-3', 'master_file', 'link-2');">master_file</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">'&lt;rec mfn="%d"&gt;'</tt><tt class="py-op">%</tt><tt class="py-name">rec</tt><tt class="py-op">.</tt><tt class="py-name">mfn</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-4" class="py-name" targets="Variable pyisis.records.MasterField.tag=pyisis.records.MasterField-class.html#tag"><a title="pyisis.records.MasterField.tag" class="py-name" href="#" onclick="return doclink('link-4', 'tag', 'link-4');">tag</a></tt><tt class="py-op">,</tt><tt class="py-name">field</tt> <tt class="py-keyword">in</tt> <tt class="py-name">rec</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"&lt;t%s&gt;%s&lt;/t%s&gt;"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="pyisis.records.MasterField.tag" class="py-name" href="#" onclick="return doclink('link-5', 'tag', 'link-4');">tag</a></tt><tt class="py-op">,</tt> <tt class="py-name">field</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable pyisis.records.MasterField.data=pyisis.records.MasterField-class.html#data"><a title="pyisis.records.MasterField.data" class="py-name" href="#" onclick="return doclink('link-6', 'data', 'link-6');">data</a></tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name"><a title="pyisis.records.MasterField.tag" class="py-name" href="#" onclick="return doclink('link-7', 'tag', 'link-4');">tag</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&lt;/rec&gt;"</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="browse"></a><div id="browse-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="browse-toggle" onclick="return toggle('browse');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.views-module.html#browse">browse</a><tt class="py-op">(</tt><tt class="py-param">master_file</tt><tt class="py-op">,</tt> <tt class="py-param">pause</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="browse-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="browse-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt class="py-docstring">"""Show all records. If pause == True (default)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">    wait for &lt;enter&gt; between showing the next record.</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt id="link-8" class="py-name"><a title="pyisis.format.master_file" class="py-name" href="#" onclick="return doclink('link-8', 'master_file', 'link-2');">master_file</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt>  </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">rec</tt> <tt class="py-keyword">in</tt> <tt id="link-9" class="py-name"><a title="pyisis.format.master_file" class="py-name" href="#" onclick="return doclink('link-9', 'master_file', 'link-2');">master_file</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"-"</tt><tt class="py-op">*</tt><tt class="py-number">60</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Record MFN"</tt><tt class="py-op">,</tt> <tt class="py-name">rec</tt><tt class="py-op">.</tt><tt class="py-name">mfn</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Size"</tt><tt class="py-op">,</tt> <tt class="py-name">rec</tt><tt class="py-op">.</tt><tt class="py-name">size</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">rec</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">rec</tt><tt class="py-op">.</tt><tt class="py-name">directory</tt><tt class="py-op">.</tt><tt class="py-name">values</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-name">i</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">pause</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">            <tt class="py-name">raw_input</tt><tt class="py-op">(</tt><tt class="py-string">"Press &lt;ENTER&gt; to display next record or Ctrl-C to quit."</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="buffer2hex"></a><div id="buffer2hex-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="buffer2hex-toggle" onclick="return toggle('buffer2hex');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyisis.views-module.html#buffer2hex">buffer2hex</a><tt class="py-op">(</tt><tt class="py-param">buffer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="buffer2hex-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="buffer2hex-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-docstring">""" Convert buffer into list of</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-docstring">    pairs (relative position, 'byte in hex')"""</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-name">sz</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">buffer</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-name">byte_list</tt> <tt class="py-op">=</tt> <tt class="py-name">unpack</tt><tt class="py-op">(</tt><tt class="py-string">'&lt;%dB'</tt><tt class="py-op">%</tt><tt class="py-name">sz</tt><tt class="py-op">,</tt> <tt class="py-name">buffer</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">    <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">" %02X "</tt><tt class="py-op">%</tt><tt class="py-name">i</tt> <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">byte_list</tt><tt class="py-op">]</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">result</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyisis-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Sun Dec 16 20:28:06 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

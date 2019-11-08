@@ -1,0 +1,112 @@
+/* coloca o selo de LILACS-EXPRESS */
+if v4 : 'LILACSEXPRESS' or v4 : 'LLXPEDT' then
+	'<table border="0" cellpadding="1" cellspacing="1" width="100%"><tr>
+	<td align="right"><a href="#" onclick="javascript:llxp_disclaimer()"><img src="/iah/online/P/image/selo.gif" border="0" name="express" align="absmiddle"></a>
+	<font face=verdana size="1">LILACS-Express</font></td>
+	</tr></table>',/,
+fi,
+
+
+if a(v805) then
+  '<table><tr><td align=justify><font size=2 face=arial>',/,
+	if p(v10) then
+		(
+			v10^*,
+			|(|v10^r|)|,
+			if iocc < nocc(v10) then '; ' else '.' fi,
+		)
+	fi,
+	if v13<>'x' then
+		(v11^*(0,3)+|;|"."),
+		(| - |v12^*(3,3)),
+		| / |,v13^*(3,3)". ",
+	else
+		(v11^*(0,3)+|;|"."),
+		(| - |v12^*(3,3))'. ',
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Analitica de Seriado */
+		if v06 = 'as' then
+			". "n13,
+			v30(3,3), if v65.4>=ref(['fixtures/ntitle']l(['fixtures/ntitle']v30),v230^a) then ref(['fixtures/ntitle']l(['fixtures/ntitle']v30),| = |v235) fi "; ",
+			v31(3,3),
+			|(|v32(3,3)|)|,
+			|:|v14^*(3,3),|-|v14^l,", ",
+			v64(3,3)".",
+                        if p(v38^b) then,
+			v38^b(3,3)+|, |".",
+                        else,
+			v38(3,3)+|, |".",
+                        fi,
+		fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Analitica de Monografia */
+		if v06 : 'am' then
+			". "n13,
+			if a(v17^*) then v888(3,3) fi,
+			if p(v16) then (v16^*, |(|v16^r|)|, if iocc < nocc(v16) then '; ' else '.' fi/) fi
+			if a(v16) then v888(3,3) fi,
+			(v17^*(3,3)+|; |". "),
+			v18^*(3,3)". ",
+			v66(3,3)", ",
+			(v62(3,3)+|;|)", ",
+			v64(3,3)". ",
+			|p.|v14^*(3,3),|-|v14^l,
+                        if p(v38^b) then,
+			|, |v38^b(3,3)". ",
+                        else,
+			|, |v38(3,3)". ",
+                        fi,
+			|(|v30(3,3),
+			", "v31(3,3),
+			", "v32(3,3),")."d30,
+			| (|v68(3,3)|)|,
+		fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel Monografico */
+		if v06*0.1 = 'm' then
+			(
+				v16^*,
+				|(|v16^r|)|,
+				if iocc < nocc(v16) then '; ' fi,
+			),"."d16,
+			(v17^*(0,3)+|; |"."),
+			(| - |v18^*(3,3)),
+			" / "v19^*(3,3)". ",". "n19,
+			|-|V21(3,3),
+			v66(3,3)"; ",
+			(v62(3,3)+|;|)"; ",
+			v64(3,3)". ",
+			v20(3,3)| p. |,
+                        if p(v38^b) then,
+			v38^b(3,3)+|, |".",
+                        else,
+			v38(3,3)+|, |".",
+                        fi,
+			|(|v30(3,3),
+			", "v31(3,3),
+			", "v32(3,3),
+			")."d30,
+			|(|v68(3,3)|).|,
+		fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel COLECAO (para manter compatibilidade com registros antigos) */
+		if v06 = 'c' then
+			(v23^*(3,3)+|; |"."),
+			(v24^*(3,3)+|; |"."),
+			(v25^*(3,3)),
+			|. |v27| vol.|,
+			v66(3,3)"; ",
+			(v62(3,3)+|/|)"; ",
+			v64(3,3)". ",
+			v20(3,3)| p. |,
+                        if p(v38^b) then,
+			v38^b(3,3)".",
+                        else,
+			v38(3,3)".",
+                        fi,
+		fi,
+  '</font></td></tr></table>',/,
+fi,
+if p(v805) then @fixtures/mailhtm.pft fi,
+'<p><br>',/,

@@ -1,0 +1,100 @@
+
+body {
+    font-size: 11pt;
+    font-family: Verdana, Helvetica;
+
+}
+
+label {
+    width: 150px;
+    text-align: right;
+}
+
+input text {
+    position: absolute;
+    left: 90px;
+    height: 12px;
+    margin: 1px;    
+}
+
+ul {
+    margin-left:5px;
+}    
+
+#maindiv {
+    width:100%;
+    border: 1px solid #cccccc;
+}
+
+#radiogroup {
+    margin-left: 10px;
+    width:28%;
+    position:relative;
+    float:left;
+    border-right:1px dashed #ccc;
+}
+
+#option_label {
+    margin-left:5px;
+}
+
+#formdiv {
+    margin:5px;
+    width:68%;
+    position:relative;
+    float:left;
+}
+
+#titlediv {
+    background:transparent;
+    border:none;
+    font-weight:bold;
+}
+
+#label_margin, #buttondiv {
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+#resultdiv {
+    margin-left: 10px;
+    float:left;
+    width:90%;
+    border-top:1px dashed #ccc;
+}
+
+#collection_name, #dbnamec, #dbnamed, #database, #from_reg, #gizmo, #mfn,
+#to_reg, #count_reg, #databasecr, #databasedr{
+    position: absolute;
+    left: 90px;
+    /*height: 13px;*/
+    margin: 1px;
+}
+
+.tagslist {
+    width: 350px;
+    height: auto;
+    background-color: #FFF;
+    border: 2px solid #ccc;
+    overflow: auto;
+    margin-top: 5px;
+}
+
+.tagslist td {
+    background-color: #FFF;
+    border: 1px solid #ccc;
+}
+
+.tagslist tr {
+    background-color: #FFF;
+    border: 1px solid #ccc;
+}
+
+.tagslist th {
+    background-color: #EEE;
+    border: 1px solid #ccc;
+}
+
+#createrecdiv {
+    width: 100%;
+}

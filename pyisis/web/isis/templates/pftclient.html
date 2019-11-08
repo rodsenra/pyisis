@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block HEAD %}
+    <link href="media/restclient.css" rel="stylesheet" type="text/css" media="screen" />
+    <script language="JavaScript" type="text/javascript" src="media/prototype.js"></script>
+    <script language="JavaScript" type="text/javascript" src="media/pftclient.js"></script>    
+{% endblock %}
+
+{% block BODY %}
+<h1>Formatting Language</h1>
+
+<div id="maindiv">
+    
+    <div id="formdiv">
+        <form>            
+            <table>
+               <tr>
+                 <td>Collection:</td>
+                 <td>
+                   <select id="collection_name_id" name="collection" onChange="javascript:getDatabases();">
+                      <option value="--Select--">--Select--</option>
+	                  {% for collection in collections %}
+	                    <option value="{{ collection }}">{{ collection }}</option>
+	                  {% endfor %}
+	               </select>
+                </td>
+               </tr>            
+               <tr>
+                 <td>Database:</td>
+                 <td> 
+                   <select id="database_name" name="database"></select>                
+                 </td>
+               </tr>  
+  			   <tr>
+  			     <td>Record:</td> 
+  			     <td>
+  			        <input type="text" id="record" size="10" value=""/>
+  			     </td> 
+  			   </tr>  
+            </table>
+
+            <div id="pftdiv">
+                <label>Commands: 
+                  <textarea id="pft" cols="80" rows="4"></textarea>
+                </label>
+            </div>
+            
+            <div id="buttondiv">
+              <input type="button" name="submit" value="Submit" OnClick="sendForm();">
+              <input type="reset" name="reset"  value="Reset">  
+            </div>    
+
+        </form>
+    </div>
+    <h4 style="margin-left:10px;float:left; width:400px;">Result</h4>
+    <div id="resultdiv" style="background: #fff; border: 1px dotted #CCCCCC">
+    </div>
+</div>
+
+{% endblock %}

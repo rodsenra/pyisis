@@ -1,0 +1,8 @@
+* List fields from a record sorted by tag
+  
+	>>> m = sample.cds
+        >>> for i in sorted(m[1]):
+        >>>     print i.tag, i.data
+        >>>
+
+

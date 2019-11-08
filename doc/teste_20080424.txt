@@ -1,0 +1,26 @@
+   No python:
+   ===========
+   cd /home/isisnbp
+   pymx -i -f isisconfig.ini
+   
+    m = maxmfrl.maxmfrl_linux
+    tam = []
+    for r in m:
+        tam.append(len(r.v123))
+
+    fd = open("pyisis_count.txt","w")
+    for i in tam:
+       fd.write("%d\n"%i)
+    fd.close()
+
+
+   Na shell:
+   =========
+   export PATH=/usr/local/bireme/cisis/5.2b/isis:$PATH
+   cd /home/isisnbp/bases/MAXMFRL
+   mx maxmfrl_linux +dir now > x
+   mx seq=x  pft=v5*4/ now > original_count.txt
+
+   diff original_count.txt pyisis_count.txt
+
+   

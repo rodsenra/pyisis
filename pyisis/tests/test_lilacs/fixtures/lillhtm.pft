@@ -1,0 +1,331 @@
+/* Montagem do icone Lilaces-Express */
+
+if v4 : 'LILACSEXPRESS' or v4 : 'LLXPEDT' then
+ '<table border="0" cellpadding="1" cellspacing="1" width="100%"><tr>
+   <td align="right" width="18%" valign="baseline"><font size="2" face="Arial"><b>Id:</b></td>
+   <td valign="baseline"><font face="arial" size="2">',f(val(v2),1,0),'</font></td>
+   <td align="right"><a href="#" onclick="javascript:llxp_disclaimer()"><img src="/iah/online/P/image/selo.gif" border="0" name="express" align="absmiddle"></a><font face="verdana" size="1">LILACS-Express</font></td>
+ </tr></table>',/,
+fi,
+
+/*if v4 : 'LILACSEXPRESS' then
+ '<table border="0" cellpadding="1" cellspacing="1" width="100%"><tr>
+   <td align="right" width="18%" valign="baseline"><font size="2" face="Arial"><b>Id:</b></td>
+   <td valign="baseline"><font face="arial" size="2">',f(val(v2),1,0),'</font></td>',
+'<td>&nbsp;</td>
+ </tr></table>',/,
+fi,
+*/
+
+if a(v805) then
+   '<table border="0" width="100%">',
+   proc( 'd9001d9002',
+	/* CPO 02 - ID */
+        if v4 : 'LILACSEXPRESS' or v4 : 'LLXPEDT' then
+	else
+		'a9001Id:',
+		'a9002',if v2:'lxp' or v5003^* = 'PAHO' or v5003^* = 'WHOLIS' then v2/ else f(val(v2),1,0) fi,/,'',
+	fi,
+	/* CPO 10 - Autor (analitica)	*/
+	/* Sub r - Responsabilidade	*/
+	if p(v10) then
+		'a9001Autor:',
+		'a9002',(
+			v10^*,
+			|(|v10^r|)|,
+			if iocc < nocc(v10) then '; ' else '.' fi,
+		),'',
+	fi,
+	/* CPO 11 - Autor institucional (analitica) */
+	if p(v11^p) then
+		'a9001Autor:',
+		'a9002',(v11^p+|; |"."),/,'',
+	else,	if p(v11^*) then
+		'a9001Autor:',
+		'a9002',(v11^*+|; |"."),/,'',
+	fi,fi,
+	/* CPO 12 - Titulo (analitica) */
+	/* CPO 13 - Titulo em ingles (analitica) */
+	/* Titulo traduzido eh apresentado desde que não seja 'X' */
+	if p(v12) and (p(v13) and s(mpu,v13,mpl)<>'X') then
+		'a9001Título:',
+		'a9002',
+			(v12^*+| / |),
+			| / | v13^*,
+			"."n13,/,
+		'',
+	else,	if p(v12) and (a(v13) or s(mpu,v13,mpl)='X') then
+		'a9001Título:',
+		'a9002',(v12^*+| / |),'',
+	fi,fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Analitica de Seriado */
+	if v06 = 'as' then
+		/* CPO 30 - Titulo (nivel serie) */
+		/* CPO 31 - Volume (nivel serie) */
+		/* CPO 32 - Numero do Fasciculo (nivel serie) */
+		/* CPO 14 - Paginas (nivel analitico) */
+		/* CPO 64 - Data de Publicacao */
+		/* CPO 38 - Informacao Descritiva */
+		if p(v30) then
+			'a9001Fonte:',
+			'a9002',
+				v30, if v65.4>=ref(['fixtures/ntitle']l(['fixtures/ntitle']v30),v230^a) then ref(['fixtures/ntitle']l(['fixtures/ntitle']v30),| = |v235) fi |;|,
+				v31,
+				|(|v32|)|,
+				|:|v14^*,|-|v14^l,
+				|, |,v64|. |,
+                                if p(v38^b) then,
+                                v38^b+|, |".",/,
+                                else,
+                                v38+|, |".",/,
+                                fi,
+			'',
+		fi,
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Analitica de Monografia */
+	if v06 : 'am' then
+		/* CPO 16 - Autor (nivel monografico) */
+		/* CPO 17 - Autor Coletivo (nivel monografico) */
+		if p(v16^*) then
+			'a9001Fonte:',
+			'a9002In: ',(v16^*+|; |"."),
+		else,	if p(v17^p) then
+			'a9001Fonte:',
+			'a9002In: ',(v17^p+|; |"."),
+		else,	if p(v17) then
+			'a9001Fonte:',
+			'a9002In: ',(v17^*+|; |"."),
+		fi,fi,fi,
+		if p(v16) or p(v17) then,
+			/* CPO 14 - Paginas (nivel analitico) */
+			/* CPO 18 - Titulo (nivel monografico) */
+			/* CPO 30 - Titulo (nivel serie) */
+			/* CPO 31 - Volume (nivel serie) */
+			/* CPO 32 - Numero do fasciculo (nivel serie) */
+			/* CPO 38 - Informacao Descritiva */
+			/* CPO 62 - Editora */
+			/* CPO 64 - Data de publicacao */
+			/* CPO 66 - Cidade de Publicacao */
+			/* CPO 68 - Simbolo */
+                                (" "v18^*+| / |". "),
+				v66', ',
+				(v62+|;|)', ',
+				v64'. ',
+				|p.|v14^*,|-|v14^l,
+                                if p(v38^b) then,
+				|, |v38^b'. ',/,
+                                else,
+				|, |v38'. ',/,
+                                fi,
+				|(|v30,
+				|, |v31,
+				|, |v32,
+				if p(v30) then ').' fi,
+				| (|v68|)|,/,
+			'',
+		fi,
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel Monografico */
+	if v06*0.1 = 'm' then
+		/* CPO 16 - Autor (nivel monografico) */
+		if p(v16^*) then
+			'a9001Autor:',
+			'a9002',(
+				v16^*,
+				|(|v16^r|)|,
+				if iocc < nocc(v16) then '; ' else '.' fi,
+			),'',
+		fi,
+		/* CPO 17 - Autor Coletivo (nivel monografico) */
+		if p(v17^p) then
+			'a9001Autor:',
+			'a9002',(v17^p+|; |),/,'',
+		else	if p(v17^*) then
+			'a9001Autor:',
+			'a9002',(v17^*+|; |'.'),/,'',
+		fi,fi,
+		/* CPO 18 - Titulo (nivel monografico) */
+		/* CPO 19 - Titulo Traduzido para o Ingles (nivel monografico) */
+		/* CPO 21 - Volume (nivel monografico) */
+		if p(v18) then
+			'a9001Título:',
+			'a9002',
+                                (v18^*+| / |),
+				" / "v19^*,'.',
+				"-"V21,/,
+			'',
+		fi,
+		/* CPO 66 - Cidade de Publicacao */
+		/* CPO 62 - Editora */
+		/* CPO 64 - Data de publicacao */
+		/* CPO 20 - Paginas (nivel monografico) */
+		/* CPO 38 - Informacao Descritiva */
+		/* CPO 30 - Titulo (nivel serie) */
+		/* CPO 31 - Volume (nivel serie) */
+		/* CPO 32 - Numero do fasciculo (nivel serie) */
+		/* CPO 68 - Simbolo */
+		if p(v66) then
+			'a9001Fonte:',
+			'a9002',
+				v66,'; ',
+				(v62+|;|),'; ',
+				v64,'. ',
+				v20| p. |,
+                                if p(v38^b) then,
+				v38^b+|, |".",/,
+                                else,
+				v38+|, |".",/,
+                                fi,
+				|(|v30,
+				|, |v31,
+				|, |v32,
+				if p(v30) then ').' fi,
+				|(|v68|).|,/,
+			'',
+		fi,
+	fi,
+	/* CPO 06 - Nivel de Tratamento */
+	/* Nivel COLECAO (para manter compatibilidade com registros antigos) */
+	if v06 = 'c' then
+		/* CPO 23 - Autor (nivel colecao) */
+		if p(v23^*) then
+			'a9001Autor:',
+			'a9002',(v23^*+|;|),/,'',
+		fi,
+		/* CPO 24 - Autor Coletivo (nivel colecao) */
+		if p(v24^p) then
+			'a9001Autor:',
+			'a9002',(v24^p+|; |),/,'',
+		else,	if p(v24^*) then
+			'a9001Autor:',
+			'a9002',(v24^*+|; |),/,'',
+		fi,fi,
+		/* CPO 25 - Titulo (nivel colecao) */
+		/* CPO 27 - Numero Total de Volumes (nivel COlecao) */
+		if p(v25) then
+			'a9001Título:',
+			'a9002',
+				(v25^*),
+				|. |v27| vol.|,/,
+			'',
+		fi,
+		/* CPO 66 - Cidade de Publicacao */
+		/* CPO 62 - Editora */
+		/* CPO 64 - Data de Publicacao */
+		/* CPO 20 - Total de Paginas */
+		/* CPO 38 - Informacao Descritiva */
+		if p(v66) then
+			'a9001Fonte:',
+			'a9002',
+				v66'; ',
+				(v62+|;|)'; ',
+				v64'. ',
+				v20| p. |,
+                                if p(v38^b) then,
+				v38^b'.',/,
+                                else,
+				v38'.',/,
+                                fi,
+			'',
+		fi,
+	fi,
+
+        if p(v40) then
+           'a9001Idioma: ','a9002'(v40+|; |"."),/,'',
+        else if p(v12^i) then
+           'a9001Idioma: ','a9002'(v12^i+|; |"."),/,'',
+        else if p(v18^i) then
+           'a9001Idioma: ','a9002'(v18^i+|; |"."),/,'',
+        else if p(v25^i) then
+           'a9001Idioma: ','a9002'(v25^i+|; |"."),/,'',
+        fi,fi,fi,fi,
+
+	/* CPO 50 - Tese e Dissertacao - Instituicao a qual se apresenta */
+	/* CPO 51 - Tese e Dissertacao - Titulo Academico */
+	if p(v50) then
+		'a9001Tese:',
+		'a9002',
+			|Apresentada a |v50,
+			| para obtenção do grau de |v51^*|.|,/,
+		'',
+	fi,
+	/* CPO 53 - Nome da Conferencia (Evento) */
+	/* CPO 53 - Conferencia - Cidade */
+	/* CPO 53 - Conferencia - Data */
+	if p(v53) then
+		'a9001Conferência:',
+		'a9002',
+			|Apresentado em: |,
+			v53|, |,
+			v56|, |,
+			v54|.|,/,
+		'',
+	fi,
+	/* CPO 58 - Projeto - Instituicao Patrocinadora */
+	/* CPO 59 - Nome do Projeto */
+	/* CPO 60 - Projeto - Numero */
+	if p(v58) then
+		'a9001Projeto:',
+		'a9002',
+			(v58+|; |,'. '),
+			v59|. |,
+			v60|. |,/,
+		'',
+	fi,
+	/* CPO 83 - Resumo */
+	if p(v83) then
+		'a9001Resumo:',
+		'a9002',(v83^*+|<br>|,'<br>',/),'',
+	fi,
+	/* CPO 1 - Codigo do Centro */
+	/* CPO 3 - Localizacao do Documento */
+
+/* Localizacao com LINK */
+
+        if p(v1) then
+                'a9001Responsável:',
+                'a9002',
+                 if v6:'as' or nocc(v1) > 1 or l(['fixtures/MAIL']v1^*)=0
+                   then
+                      (v1^*,ref(['fixtures/MAIL']l(['fixtures/MAIL']v1^*)," - "v690),'<br>')
+                   else
+                       if l(['fixtures/MAIL']v1^*)>0 then,
+                          if v5003^* = 'REPIDISCA' then,
+                            |<A Href="http://www.bireme.br/cgi-bin/wxislind.exe/iah/online/?IsisScript=iah/iah.xis&nextAction=lnk&base=MAILREP&lang=p&exprSearch=|v1|&" target="_blank">|v1|</a>|,ref(['fixtures/MAIL']l(['fixtures/MAIL']v1^*)," - "v690)
+                          else
+                             |<A Href="http://www.bireme.br/cgi-bin/wxislind.exe/iah/online/?IsisScript=iah/iah.xis&nextAction=lnk&base=MAILLIL&lang=p&exprSearch=|v1|&" target="_blank">|v1|</a>|,ref(['fixtures/MAIL']l(['fixtures/MAIL']v1^*)," - "v690)
+                          fi,
+                       fi,
+                 fi,
+                 mpl,'',
+        fi,
+
+
+/* Fim da Localizacao com LINK */
+
+
+                if p(v3) then
+                'a9001',
+                'a9002',
+                 mhl,(v3+|; |),mpl,'',
+                fi
+
+	/* CPO 8 - Suporte Eletronico */
+	if s(mpu,v8,mpl):'CD-ROM' or s(mpu,v8,mpl):'DISQUETE' or s(mpu,v8,mpl):'FLOPPY' then
+		'a9001Meio:',
+		'a9002',(
+			if s(mhu,v8^*,mpl) = 'INTERNET' then,
+			else
+				v8^*" / ",v8^i,'<br>',/,
+			fi,
+		),'',
+	fi,
+	),
+   @fixtures/htmtable.pft,
+   '</table>',
+fi,
+mpl,if p(v805) then @fixtures/mailhtm.pft fi,
+'<p>',/,

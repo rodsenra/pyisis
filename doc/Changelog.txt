@@ -1,0 +1,147 @@
+2007-12-17 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * refactoring of where __version__ is placed and used
+  * added versioning detail to python console
+
+2007-12-16 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * refactoring of DirectoryEntry into MasterField
+  * optimized record assembly
+  * MasterFileRecord now inherits from dict
+  * Created tutorial document
+  * better (well-formed) XML formatting
+    - replace invalid <delimiters> for (delimiters)
+
+2007-12-15 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * support slice as index for MasterFiles
+  * create iterator object in the stack to implement
+    browsing and record ranges
+  * generate documentation from sources (epydoc)
+  * add PyVersion to banner
+
+2007-12-14 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * finish Web interface to browse and inspect collections
+  * handle errors/exceptions and render them as a response
+
+2007-12-11 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * make shortcut to access databases inside collections
+  * check the real use o mtype in control structure (extra_large)
+  * improve representation of masterfile
+  * improve representation of record
+  * improve representation of field
+  * get_directory_entries renamed to get_fields
+  * get_tags() implemented for MST record
+  * format function can be called as record's method
+  * complete native support (read only) to  .mst e .xrf 
+ 
+------------------------------------------------------------------------
+r29 | rodrigo | 2007-11-06 07:43:55 -0200 (Tue, 06 Nov 2007) | 3 lines
+
+Added pymx.py
+
+
+------------------------------------------------------------------------
+r28 | rodrigo | 2007-05-16 11:55:28 -0300 (Wed, 16 May 2007) | 2 lines
+
+Adicionado documento de planejamento
+
+------------------------------------------------------------------------
+r27 | rodrigo | 2007-05-15 09:40:53 -0300 (Tue, 15 May 2007) | 2 lines
+
+Adicionada pesquisa sobre usuarios ISIS
+
+------------------------------------------------------------------------
+r26 | rodrigo | 2007-05-07 17:17:50 -0300 (Mon, 07 May 2007) | 2 lines
+
+Demo em flash do ipymx
+
+------------------------------------------------------------------------
+r25 | rodrigo | 2007-05-07 17:16:08 -0300 (Mon, 07 May 2007) | 2 lines
+
+- Versao 0.9 do relatorio
+
+------------------------------------------------------------------------
+r24 | rodrigo | 2007-05-03 18:12:34 -0300 (Thu, 03 May 2007) | 2 lines
+
+versoa 0.9 do relatorio sem as referencias ajustadas
+
+------------------------------------------------------------------------
+r23 | rodrigo | 2007-04-24 14:28:43 -0300 (Tue, 24 Apr 2007) | 2 lines
+
+Apresentacao realizada dia 23/04/2007 para Sheriff (Arabe)
+
+------------------------------------------------------------------------
+r22 | rodrigo | 2007-04-24 14:27:09 -0300 (Tue, 24 Apr 2007) | 2 lines
+
+Ultima versao do documento visao (0.8 completa) e 0.9 antes de qualquer edição
+
+------------------------------------------------------------------------
+r21 | rodrigo | 2007-04-24 14:21:58 -0300 (Tue, 24 Apr 2007) | 3 lines
+
+Revert changes to work again with CDS/ISIS demo database
+
+------------------------------------------------------------------------
+r20 | rodrigo | 2007-04-19 18:46:52 -0300 (Thu, 19 Apr 2007) | 5 lines
+
+Versao 0.8 do documento
+
+M    reports/spec_isis_nbp.odt
+
+------------------------------------------------------------------------
+r19 | rodrigo | 2007-04-19 17:48:18 -0300 (Thu, 19 Apr 2007) | 2 lines
+
+Introducao da apresentacao 
+
+------------------------------------------------------------------------
+r18 | rodrigo | 2007-04-19 17:42:56 -0300 (Thu, 19 Apr 2007) | 2 lines
+
+Versao 0.7 do documento de especificacao
+
+------------------------------------------------------------------------
+r17 | rodrigo | 2007-03-07 13:40:52 -0300 (Wed, 07 Mar 2007) | 2 lines
+
+Ajustes de tamanho para funcionar com Scielo
+
+
+2007-03-06 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * Suporte a diretivas -a/--block_align e -c/--ctrl-size
+
+2007-02-28 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * Fix no tratamento de campos repetidos
+  * Robustez caso readline não esteja disponível
+
+2007-02-23 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * Fixed repeated values handling
+  * fmt: Implemented mode handling (m(dh)(lu))
+  * Better pymx -i interactive mode.
+    Now supports expressions AND commands (like setting variables)
+    Now runs in a sandbox environment
+
+2007-02-22 "Rodrigo Senra <rodsenra@gpr.com.br>"
+  * changed output directory of temporary files PLY
+    (used config file for that)
+  * Use OrderedDict to simply handling of directory entries and subfields,
+    with O(1) access and preserving master file order
+  * fmt: Handling case-insensitive subfield delimiters
+  * fmt: Handling ^* first sub-field
+  * fmt: Handling fragments (offset and length)
+  * fmt: Handling MFN() and REC()
+
+2007-02-21 "Rodrigo Senra <rodsenra@gpr.com.br>"
+   * Quick access to fields (by number) and subfields (by id)
+     Ex.: mf[1][26].a
+   * format.py - formatting language base rules
+
+2007-02-15 "Rodrigo Senra <rodsenra@gpr.com.br>"
+   * created the pymx utility
+   * refactored files.py to use pickle instead of repr()
+     for persisted cross-reference index.
+     Each data record takes ~6.4 bytes at cross-reference index.
+
+2007-02-13 "Rodrigo Senra <rodsenra@gpr.com.br>"
+   * changed directory structure and added some file extensions
+
+2007-01-25 "Rodrigo Senra <rodsenra@gpr.com.br>"
+    * General refactoring in the code
+    * Created pretty-formatters to types via __str__ methods
+    * Created easy access API for elements (getters)
+    * Create Xref file (.pxr) -> new format .:. repr(dict)
+

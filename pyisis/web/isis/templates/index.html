@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block BODY %}
+<h1>{{title}}</h1>
+
+<h3 style="margin-left:20px;">Available URL Services:</h3>
+
+<ul>
+
+  <li><u>/web/restapi/</u></li> 
+  <p>CRUD REST API</p> 
+  
+  <li><u>/web/xmlrpc/</u></li>
+  <p>CRUD XMLRPC API.</p> 
+  <pre>Use <i>system.listMethods()</i> to get methods list.</pre>
+  
+  <li><a href="/web/restclient/">/web/restclient/</a></li>
+  <p>Web client to access REST API Server.</p>
+  
+  <li><a href="/web/pftclient/">/web/pftclient/</a></li>
+  <p>Formatting language commands.</p>
+    
+  <li><a href="/web/actionlet/">/web/actionlet/</a></li>
+  <p>Actionlet permit access to collection, database, and records from url, ex.:</p>
+  
+  <pre>
+     http://127.0.0.1:8000/web/actionlet/sample/cds/1/
+  </pre>
+  
+  <pre class="actionlet">
+    mfn=1 length=369 (active)
+    69: Paper on: <plant physiology><plant transpiration><measurement and instruments>
+    70: Magalhaes, A.C.
+    70: Franco, C.M.
+    44: Methodology of plant eco-physiology: proceedings of the Montpellier Symposium
+    50: Incl. bibl.
+    24: Techniques for the measurement of transpiration of individual plants
+    26: ^aParis^bUnesco^c-1965
+    30: ^ap. 211-224^billus.   
+  </pre>           
+
+</ul>
+
+{% endblock %}
+

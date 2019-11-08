@@ -1,0 +1,24 @@
+Install
+=======
+
+These instructions are valid for any Linux system derived
+from Debian or that supports  the apt package manager system,
+such as: Debian, Ubuntu, Knoppix, Kurumuin, etc
+
+sudo aptitude install pyopenssl ipython python-twisted python-setuptools 
+python-nose
+sudo easy_install ZODB3 3.8.1
+
+  Or
+
+ - install Python 2.5.x
+ - install PyOpenSSL-0.6
+ - install PyCrypto-2.0.1
+ - install Twisted
+ - install IPython
+ - install Nosetests
+ 
+
+From the folder where pyisis-X.Y was uncompressed do: 
+   
+   sudo python setup.py install

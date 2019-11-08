@@ -1,0 +1,629 @@
+2009-11-04: João Chaves <joaochaves@gpr.com.br>
+	* Restored comment block in save function;
+	* Added except handling for search, search_index and listkeys functions. (tkt #115)
+
+2009-11-03: João Chaves <joaochaves@gpr.com.br>
+    * Fixed xrf offset to not extra_large header in function decode;
+    * Fixed delete status in XfrRecord._write function;
+    * Added routine to save "new field" to last position in save function;
+    * Added auto-increase block size to mst file;
+    * Added test to block save data between positions 498 and 512;
+    * Fixed NXTMFP offset for incorret value;
+    * Fixed BLOCK ID in xrf file;
+
+2009-10-30: João Chaves <joaochaves@gpr.com.br>
+	* Fix LEADER_SIZE in save function (records.py);
+	* Removed set_hook from IPShellEmbed to engine's interactive method;
+	* Removed check mask to LEADER_MASK_XL and DIR_MASK;
+
+2009-09-17: João Chaves <joaochaves@gpr.com.br>
+	* Fix list node in size function;
+	* Added inverting techniques test case;
+	* Added exception handler to NumFuncVal (#73);
+	* Fixed NumFunc in repeatable groups handling;
+
+2009-09-16: João Chaves <joaochaves@gpr.com.br>
+	* Moved to unicodedata functions in invertdb;
+
+2009-09-14 João Chaves <joaochaves@gpr.com.br>
+	* Fix new record offset in save function;
+	* Added reset flags for master file and xref file;
+	* Added new test case: test_update_flags (test_files);
+
+2009-09-11 João Chaves <joaochaves@gpr.com.br>
+    * Added ref and lookup trivial syntax test case;
+
+2009-09-03 João Chaves <joaochaves@gpr.com.br>
+    * Removed hard coded ansiuctab;
+    * Used unicodedata.normalize function for encode key;
+
+2009-09-02 João Chaves <joaochaves@gpr.com.br>
+	* Added ref and lookup trivial syntax;
+	* Added config SEARCH_PATH option;
+	* Added search_path function;
+
+2009-09-01  João Chaves <joaochaves@gpr.com.br>
+	* Added lilacs test case;
+
+2009-08-31  João Chaves <joaochaves@gpr.com.br>
+	* Fix yacc.py deprecation warnings;
+
+2009-08-27  João Chaves <joaochaves@gpr.com.br>
+    * Changed SILENT_EXCEPTIONS default value to False;
+    * Fix unconditional newline (ticket #74);
+    * Added fixtures folder to test cases;
+
+2009-08-19  João Chaves <joaochaves@gpr.com.br>
+    * Added checks to dependency options in pymx;
+    * Fix dump_xml in module views.
+
+2009-08-14  João Chaves <joaochaves@gpr.com.br>
+	* Fix import os.path.split in mxpy.py;
+	* Fix get_mfn_post function to use ansiuctab;
+
+2009-08-13  João Chaves <joaochaves@gpr.com.br>
+    * Added table ansiuctab to apply in invertdb function;
+    * Added set self.pcb for empty callback option;
+    * Added set fst file name if empty fst option;
+	* Fix get_offset_field function;
+
+2009-08-03 João Chaves <joaochaves@gpr.com.br>
+    * Fix output encoding session (pymx);
+
+2009-07-30 João Chaves <joaochaves@gpr.com.br>
+	* Added 1000-1008 techniques;
+
+2009-07-29 João Chaves <joaochaves@gpr.com.br>
+	* Handling extra spaces in sequence class;
+    * Added test case to gizmo and gsplit;
+	* Fix break exception to empty workarea;
+	* Fix continue exception to empty workarea;
+
+2009-07-28 João Chaves <joaochaves@gpr.com.br>
+   * Refactoring get_last_line function;
+
+2009-07-27 João Chaves <joaochaves@gpr.com.br>
+   * Fix TypeError in function sweepRepeatableLiteral;
+   * Fix break_line function to single space new line;
+
+2009-07-24 João Chaves <joaochaves@gpr.com.br>
+   * Handling workarea in proc eval function;
+   * Added workarea parameter in format_chain function;
+
+2009-07-23 João Chaves <joaochaves@gpr.com.br>
+   * Added cache to ref eval function;
+   * Added gsplit proc eval function;
+   * Added gizmo proc eval function;
+
+2009-07-22 João Chaves <joaochaves@gpr.com.br>
+   * Added cache to get_mfn_post Files Function;
+   * Fixed Proc add function;
+   * Refactoring mxpy handling session;
+   * Revised Conditional Literal break line;
+   * Revised Field format function break line;
+
+2009-07-21 João Chaves <joaochaves@gpr.com.br>
+   * Revised Field format and eval function;
+   * Revised RepeatableGroup eval function;
+   * Refactoring RepeatableLiteral;
+   * Revised break line in Inconditional function;
+
+2009-07-20 João Chaves <joaochaves@gpr.com.br>
+   * Revised proc add regular expression;
+   * Fixed break line in format function LeafNode;
+
+2009-07-16 João Chaves <joaochaves@gpr.com.br>
+   * Added suffix parameter in ConditionalLiteral parser p_suffix;
+
+2009-07-15 João Chaves <joaochaves@gpr.com.br>
+   * Fix function p_rprelit in parser.py;
+   * Fix ConditionalLiteral end line;
+   * Added post processing for ConditionalLiteral end line;
+
+2009-07-14 João Chaves <joaochaves@gpr.com.br>
+   * Fix filter_add proc regular expression;
+   * Fix get_last_line function;
+   * Fix Field eval repeatable literal;
+   * Added set_InconditionalLitaralformat in BinOp class;
+
+2009-07-13 João Chaves <joaochaves@gpr.com.br>
+   * Fix handling workarea in Sequence eval function;
+   * Fix LeafNode format function;
+
+2009-07-10 João Chaves <joaochaves@gpr.com.br>
+   * Fix handling RepeatableGroup workarea;
+   * Fix break_line function;
+
+2009-07-08 João Chaves <joaochaves@gpr.com.br>
+   * Fix c comment regular expression in lexer.py;
+   * Added support to emptycomma repeatableGroup ",(,,),";
+   * Fix proc add_tag regular expression;
+   * Added support to empty if statement;
+
+2009-07-07 João Chaves <joaochaves@gpr.com.br>
+   * Fixed handling lexer c style comment;
+   * Fixed inconditionalLiteral new line;
+   * Fixed parser p_strfunc_s funtction;
+   * Fixed handling RepeatableGroup VField nodes;
+
+2009-07-02 João Chaves <joaochaves@gpr.com.br>
+   * Added repeatable literal function to set field properties;
+   * Fix p_ifstatement and p_ifelsestatement in parse.py;
+   * Fix handling Field in lexer:t_VFIELD function;
+   * Fix handling p_rprelit and p_rposlit parser function;
+
+2009-07-01 João Chaves <joaochaves@gpr.com.br>
+   * Refactoring handling Repeatable Literal;
+   * Fix VField empty production;
+
+2009-06-30 João Chaves <joaochaves@gpr.com.br>
+   * Added handling dot spacer in break_line function;
+
+2009-06-29 João Chaves <joaochaves@gpr.com.br>
+   * Added mxpy record range parameters (-f -t);
+   * Fix CSpacer function;
+   * Added handling MasterField subfield;
+
+2009-06-26 João Chaves <joaochaves@gpr.com.br>
+   * Fix handling ConditionalLiteral and Field formatting spaces;
+   * Fix handling nField and vField formatting spaces;
+   * Added mxpy.py output encoding;
+
+2009-06-25 João Chaves <joaochaves@gpr.com.br>
+   * Fix Repeatable literal blank spaces;
+   * Fix lw(0) setting and test;
+   * Fix repeatable groups test;
+   * Adjusted repeatable groups, lw, select case tests;
+
+2009-06-22 João Chaves <joaochaves@gpr.com.br>
+   * Added support to load config file in Ref function for full path database;
+   * Refactoring Field blank spaces formatting;
+   * Refactoring LeafNode blank spaces formatting;
+
+2009-06-18 João Chaves <joaochaves@gpr.com.br>
+   * Fixed test case continue;
+   * Removed while loop in find_node function;
+   * Fixed Repeatable Group/Continue command;
+   * Fixed Instr,RSUM,RMAX functions;
+   * Removed Exception in Cat function;
+   * Fixed Repeatable Group extra Spacer;
+   * Fixed Repeatable Literal and fields with just one occ;
+   * Added more test cases (email Heitor);
+
+2009-04-30 João Chaves <joaochaves@gpr.com.br>
+   * Fixed repeatable groups formatting issues (line spacer);
+
+2009-04-29 João Chaves <joaochaves@gpr.com.br>
+   * Fixed MFN with slash spacer;
+   * Fixed full include file path (@);
+   * Fixed Mode function;
+
+2008-10-12 João Chaves <joaochaves@gpr.com.br>
+   * Fixed relative paths for cat command;
+   * Added include command (@);
+
+2008-09-11 João Chaves <joaochaves@gpr.com.br>
+   * Added formatting language commands instr, left, right, replace, size, seconds,
+     date and datex.
+   * Added test case for this commands.
+
+2008-09-10 João Chaves <joaochaves@gpr.com.br>
+   * Formatting language html page
+
+2008-09-09 João Chaves <joaochaves@gpr.com.br>
+   * SSH user and password in config file
+   * Home page Links
+
+2008-08-29 Rodrigo Senra <rsenra@acm.org>
+   * refactoring of AST (pft handling) evaluation structure
+   * eval() gains workarea parameter
+
+2008-08-28 Rodrigo Senra <rsenra@acm.org>
+   * refactoring in how pft functions are handled internally to simplify
+     the grammar, speed up processing and make it easier future implementations.
+     Whenever possible, functions will have the format FUNCSTR LPAREN  isisfmt RPAREN.
+     Each ast node should be responsible to enforce its correct number of
+     parameters.
+   * Minimized from 35 to 23 shift/reduce conflicts
+   * Removed rule "strexpr : strfactor strexpr" and strfactor
+
+
+2008-08-27 Rodrigo Senra <rsenra@acm.org>
+   * Added Licence.txt file to documentation specifying
+     all licenses in ISIS-NBP dependencies
+   * Simplified grammar.
+     All functions in the format FUNCSTR LPAREN  isisfmt RPAREN.
+     Each ast node should be responsible to enforce correct number of
+     parameters. This is done for s,mid. Still need to do it for
+     other functions.
+
+2008-08-26 Rodrigo Senra <rsenra@acm.org>
+   * subfield tag name can be any char or number (including single-char UNICODE)
+   * all regular expressions match against UNICODE
+   * Fixed grammar to allow "isisfmt : fmtelem separator"
+   * Added support to mid()
+
+2008-08-21 Rodrigo Senra <rsenra@acm.org>
+   * improved from 23 reduce/reduce conflicts to 0 conflict
+     in pft grammar by changing rules
+        (-) fmtelem -> ilit
+        (-) strfactor -> ilit
+        (-) prefix -> ilit
+        (+) fieldselector -> ilit
+        (+) fieldselector -> ilit field suffix
+        (+) fieldselector -> ilit field
+
+   * Fix repeatable groups eval to use format() instead of
+     eval when dealing with non-Field nodes
+   * Added test case for repeatable groups
+   * occ parameters passed in chain object instead of in function
+     (the reason is to avoid changing the eval() and formta() APIs)
+
+2008-08-19 Rodrigo Senra <rsenra@acm.org>
+   * default LEADER_XL=False
+   * sample.cds is LEADER_XL=True
+   * removed dummy databases from sample
+   * eliminated unused KEYWORD token
+   * finished mode operator implementation
+
+   * Fixed bug in conditional literal prefixes
+   * Literals obey uppercase mode (fixed in this release)
+   * Mode parameters belong to top level chain object and
+     can be inspected in format() or eval() methods from AST nodes
+
+
+2008-08-15 Rodrigo Senra <rsenra@acm.org>
+   * Fixed handling of UNARY MINUS operator
+   * Workarea now is a specialized class (not just a list)
+   * change all str() to unicode()
+   * working on mode
+
+2008-08-14 Rodrigo Senra <rsenra@acm.org>
+   * redefinition of imports to avoid circularity (from -> import)
+   * MasterFile has new attribute -> collection_name (needed by REF)
+   * changes in grammar to eliminate reduce/reduce conflicts
+     strfactor -> fieldselector
+   * ref() supports ['collection.database']
+
+2008-08-13 Rodrigo Senra <rsenra@acm.org>
+   * Added s() formatting function
+   * Refactoring of module organisation:
+     - format.py contents moved into ast.py
+     - format.py removed
+   * Created session.py module to encapsulate global parameters
+     (first step to make the ISIS-NBP Cell multithread-safe)
+   * Implemented REF() function (without cross-database/collection support)
+
+
+2008-08-12 Rodrigo Senra <rsenra@acm.org>
+   * Configurable subfield delimiter
+   * Refactoring of Field constructors, now they receive
+     config object as parameter to identify: encodings and
+     sub-field delimiter
+   * Added f() formating function
+
+2008-08-08 Rodrigo Senra <rsenra@acm.org>
+   * Added support to rmax(), rmin(), ravr(), rsum()
+
+2008-08-06 João Chaves Jr <joaochaves@gpr.com.br>
+   * GIZMO para Unicode
+
+2008-08-05 Rodrigo Senra <rsenra@acm.org>
+   * format("v13^*", record) added to regression test suite
+   * New default value for MAX_LINE_WIDTH==76
+   * lower case conversion to boolean operators (or == OR)
+   * config object rendered as string (str()) or unicode string (unicode())
+   * MasterField do automatic conversion to unicode when the data
+     parameter is not a unicode object already.
+   * Fixed printing MasterRecords when mfn value is not set.
+   * Fixed heading and trailing spaces in pft expressions (removed by default)
+   * Fixed handling mod operator (%) and simplified numerical operator support
+   * MAX_LINE_WIDTH when set to 0 disables line braking algorithm
+   * Handles correctly unbreakable longer than MAX_LINE_WIDTH lines, truncating
+     the lines at MAX_LINE_WIDTH.
+   * Fixed boolean functions p() and a() now evalute to True or False (instead of
+     their inner predicate value).
+   * Fixed correctly handling not over boolean expressions (not only relations)
+   * Fixed fields used in conditional expressions(ex:v26>'',v50:'bib'),
+     field objects were not wrapped in certain cases.
+
+2008-07-30 Rodrigo Senra <rsenra@acm.org>
+   * Simplified test cases in test_format.py
+   * Ply distributed with (inside) pyisis
+   * Enabled parser debugging
+   * Support to  string expressions
+
+2008-07-29 Rodrigo Senra <rsenra@acm.org>
+   * Added test cases to validate changes in encoding handling
+   * Added test cases for numerical expressions
+   * Fix in the priority of numerical expressions
+   * Removed unsafe eval, replaced by fixed set of numerical operators
+   * Numerical expressions can be displayed directly, even if the
+     F() is not present in the expression
+   * Boolean expressions can be displayed directly, evaluating
+     to True or False (good for debugging purposes)
+   * Included support to xor boolean operator
+   * Fix MFN handling. eval return integer, and format display digits
+   * Full support to numerical and boolean expressions
+
+
+2008-07-28 Rodrigo Senra <rsenra@acm.org>
+   * i18n support in test-cases output
+   * refactored OUTPUT_ENCODING support. Instead of handling it
+     inside IPython's result_display handler, now every MasterField
+     is given an encoding when it is built. If None is given, the one
+     present in the global config object is used.
+   * Fix in MasterField __str__ and __repr__
+   * MasterRecord can receive a dict as parameter that initializes
+     the record
+   * MasterRecord repr() generates string that can rebuild the record
+   * Added loop() function
+
+
+2008-07-28 Joao Chaves <joaochaves@gpr.com.br>
+   * Gizmo handling integrated to Python standard
+     decode/encode functions
+
+2008-07-25 Rodrigo Senra <rsenra@acm.org>
+   * VAL function
+   * refactor lexer for keywords
+   * updated i18n files
+
+2008-07-24 Rodrigo Senra <rsenra@acm.org>
+   * support to field alignment operator
+
+2008-07-23 Rodrigo Senra <rsenra@acm.org>
+   * refactored workarea handling in formatting expressions.
+     Instead of a single step to adjust LINE_WIDTHs, now
+     each node adjusts its own text outcome.
+   * Bug fix in XSpacer by using get_last_line(), which
+     always returns the last text chunck after the last linefeed
+
+2008-07-22 Rodrigo Senra <rsenra@acm.org>
+   * Added Cn tabulation support
+   * Added Dummy field support (Dt,Nt) and respective test case
+   * minimal .FDT support
+   * fields support access by name, by tag, by int(tag)
+   * Added attributes (.fdt, .fdt_field_names, .fdt_field_tags)
+     to MasterFile
+   * FDT layout is configurable per masterfile, and
+     can be defined inside the respective .ini
+   * New test cases to validate FDT support
+
+2008-07-17 Rodrigo Senra <rsenra@acm.org>
+   * File layout can be configured per MasterFile,
+     alignment (LEADER_XL=False/True -> 4/1), and
+     endianness (ENDIAN=little/big)
+   * BYTE_ORDER_PREFIX added to configuration to make
+     platform endianess configurable (per file)
+   * refactored config structure
+
+2008-07-16 Rodrigo Senra <rsenra@acm.org>
+   * João Chaves added i18n support, I added unicode=1 to support
+     Python ascii default encoding
+   * Set of exceptions going to pymx.log instead of
+     interactive console (config.SILENT_EXCEPTIONS)
+   * All Xrf constants now configurable, this means that the layout
+     of XRF files is also configurable
+   * MasterRecord can be populated from Python dictionary (lists
+     used to define MasterContainerFields)
+   * Refactoring in configuration, ensure cascade
+   * LEADER_XL added to config
+   * Added 'local' to collections, it holds any master file present
+     in the current working directory
+   * Config -> default augmented by global (-f) xor specific <mst>.ini
+   * Cascaded configuration
+
+
+2008-07-15 Rodrigo Senra <rsenra@acm.org>
+   * permissions of newly created files (rx-r-xr-x)
+   * correctly computes rec.mfrl (liquid sizes of data)
+   * rec.base is an invalid attribute (generated on demand during IO)
+   * new exception hook for interactive console
+   * Fixed logging subsystem
+
+
+2008-07-07 Rodrigo Senra <rsenra@acm.org>
+   * support blank spaces as separators (same as commas)
+   * removed ENDMARKER from lexer
+   * flatten as independent function and refactored
+   * Sequence now evaluates its children (needed for IF's
+     that have unflattened subtrees)
+   * test_spacing now runs flawlessly all test suite
+
+
+2008-06-30 Rodrigo Senra <rsenra@acm.org>
+    * refactor mst,record => record, mst in all API functions
+    * records instances gained a .mst attribute pointing to their
+      respective MasterFile, when loaded from a master file.
+
+2008-06-26 Rodrigo Senra <rsenra@acm.org>
+    * recognize integers, floats and numbers in scientific notation
+    * grammar for numerical expressions
+    * elimination of ambiguity in ISIS grammar
+      (removing reduce/reduce conflicts by defining priorities
+       and reorganizing the grammar)
+    * added support for boolean functions p()/a()
+    * added grammar for expressions (almost complete)
+    * implemented code generation for if and boolean functions
+
+2008-06-25 Rodrigo Senra <rsenra@acm.org>
+    * Implementing vertical spacing
+    * Adjusted %prec FIRST in spacingstr rule that caused
+      errors in parsing
+    * Added MAX_LINE_WIDTH to config
+    * Added support for Xn
+
+2008-06-18 Rodrigo Senra <rsenra@acm.org>
+    * Fixed grammar rules to eliminate shift/reduce conflicts
+      and reduce/reduce conflicts
+    * MasterContainerFields indexed by 1. Index 0 now
+      returns a masterField with tag 0 and empty string.
+    * representation of MasterContainer shows raw strings
+      concatenated with empty string.
+
+
+2008-06-17 Rodrigo Senra <rsenra@acm.org>
+    * MasterContainerFields support .data attribute and
+      _get_data(separator='') API. So they support the same interface
+      as MasterFields
+    * Support for conditional literals finished in pft expressions
+    * refactor in conditional literals handling
+    * support for repeatable literals
+
+2008-06-12 Rodrigo Senra <rsenra@acm.org>
+    * FIX in field slicer operations
+    * Added new test cases
+
+2008-06-10 Rodrigo Senra <rsenra@acm.org>
+    * MFN case-insensitive
+    * &&E empty markers to allow $v1Belex to
+      expand $v1 correctly!
+    * Inconditional literal support
+
+2008-06-09 Rodrigo Senra <rsenra@acm.org>
+    * self.order added to MasterField to preserve
+      subfield order
+    * support to ^* (first subfield)
+    * get_subfield(s) are now instance methods (not static methods)
+
+2008-05-29 Rodrigo Senra <rsenra@acm.org>
+    * Added cache for pre-compiled formatting functions
+    * Added function format to interactive environment
+    * Added django templating system support
+    * Upgrade from Twisted from 2.5.0 to 8.0.1
+    * Upgrade from PyOpenSSL from 0.6 to 0.7
+    * Added TwistedWeb2 to dependencies
+    * using django as main web framework
+    * Ported actionlets to run from inside Django framework
+
+2008-05-28 Rodrigo Senra <rsenra@acm.org>
+    * Refactor AST nodes to have same name as parser productions
+
+2008-05-27 Rodrigo Senra <rsenra@acm.org>
+    * First version of pyisis that generates code for "VFIELD"expression
+
+2008-05-21 Rodrigo Senra <rsenra@acm.org>
+    * lexer supporting fields, modes, literals, mfn
+
+2008-05-20 Rodrigo Senra <rsenra@acm.org>
+    * refactoring of formating language compiler
+    * Added lexer test cases
+    * lexer supporting literal expressions
+    * lexer informing error conditions
+
+2008-05-14 Rodrigo Senra <rsenra@acm.org>
+    * tested psyco JIT but resulted in no optimization
+    * several handcrafted optimizations
+    * fetch as inline routine in fiels.py
+    * using iterators in Collection.__iter__
+    * profile option sorts by cumulative time
+    * list_all optimized to look up output_encoding only once from config
+    * MasterRecord.read() does not test for invalid input encoding
+    * Fixed reading record once, size = (mfrl-leader)
+
+2008-05-13 Rodrigo Senra <rsenra@acm.org>
+    * Avoid applying unicode() while examining class objects
+    * Added test_check_type to regression tests
+    * Added custom completer to hide python's default and
+      unrelated __fields__ for Isis related instances
+    * Correctly handles mixed anonymous subfield and explicit
+      subfield in the same field (sample cds mfn=27 tag=76),
+      and added test case to check this.
+    * cleaned FIXME's in code
+    * forced encoding (from master.config) in browse() and list() views
+    * Optimizations:
+       - instead of using regular expression in __setattr__ use startswith
+         side effect: records cannot have non-field attributes starting with v or V
+
+2008-05-08 Rodrigo Senra <rsenra@acm.org>le
+
+    * Fix to use correct encoding while writing back records to master file
+    * use UNICODE objects for all internal strings
+    * convert from/to default_encoding at I/O boundaries
+
+2008-04-30 Rodrigo Senra <rsenra@acm.org>
+    * Invalid and inexistent records return None
+    * Fix in xrf block allocation when creating new records
+    * pymx now supports -o (or --outputdb) and --copy
+      to copy active records between two databases
+    * Fix in XRF Cache while calculating len(master_file).
+      The cache was used to evaluate the size of the database,
+      but not all blocks were visited leading to incorrect record
+      numbers.
+    * Implemented undelete operation
+    * Added new test case: test_records
+    * Implemented record update
+    * Implemented retrieving previous record versions (prior to update)
+
+2008-04-29 Rodrigo Senra <rsenra@acm.org>
+    * assume .mst if extension omitted from commandline (-m)
+    * physically deleted should be return as empty MasterRecord
+    * fields are no longer implicitly sorted by tag
+    * Homogeneous interface:
+      - len(MasterField)== 1
+        len(MasterContainerField) == # repetitions
+      - MasterContainerField.tag (same for all inner MasterFields)
+    * Fixed building MasterFields from lists and strings
+    * Fixed double wrapping when including repeatable fields
+    * Added support to subfield repetition
+
+2008-04-23 Rodrigo Senra <rsenra@acm.org>
+    * force disk buffers flush on critical updates (writes)
+    * new tests to verify record writing
+    * added 100 new records (both .mst and .xrf were fine)
+
+2008-04-24 Rodrigo Senra <rsenra@acm.org>
+    * Added --control option to pymx to dump control record
+    * option -f is NOT mandatory, we assume reasonable defaults
+    * if isisconfig.ini is found with .mst it overrides config settings
+    * allowed one configuration file per database,
+      possible to redefine sizes and byte layouts
+    * --list imitates mx output
+    * str(config) pretty-prints configuration settings
+    * show config via web (actionlet==@config)
+    * support for record deletion
+
+2008-04-22 Rodrigo Senra <rsenra@acm.org>
+    * Cell capable of handling read-only master files
+    * Added .v3__. style of accessing fields
+    * Implemented __cmp__ for fields transparent sorting (using tags)
+
+2008-04-15 Rodrigo Senra <rsenra@acm.org>
+    * Yet another refactor of the model. Introduced MasterContainerField
+    * Fixed handling of nvf and mfrl (recomputed on demand)
+    * Fixed handling of repeatable fields
+    * browse() removed from MasterRecord API, replaced by
+      the generator get_fields()
+    * format() a.k.a pft() are no longer methods
+      of record instances. Moved to MasterFile.
+    * Formatting expressions working again ;o)
+
+2008-04-09 Rodrigo Senra <rsenra@acm.org>
+    * Empty mst and xrf files are now created with
+      at least block sizes
+    * Fixed MasterField representation
+    * MasterFileRecord renamed to MasterRecord
+    * MasterRecord implements method save(mst)
+    * Capable of creating mst and xrf records from empty files
+
+2008-04-08 Rodrigo Senra <rsenra@acm.org>
+    * XrfCache entry knows its respective MFN
+    * Support creation of empty MasterFile (just control header)
+      and empty XrfCache (1 block flull of inexistent record entries)
+
+2008-04-05 Rodrigo Senra <rsenra@acm.org>
+    * Added reccnt, mfcxx1, mfcxx2, mfcxx3 to control object
+    * clean-up control header handling
+    * XrfCache supports iteration protocol
+    * Added new test cases for master file and collection
+    * Fix len(masterfile) that was broken
+
+2008-04-04 Rodrigo Senra <rsenra@acm.org>
+    * use ConfigParser instead of configuration in Python module
+    * adapted config.py to parse isisconfig.ini and remain compatible
+      with the Config (class) interface
+    * fixed missing '<' to force little endian input, allowing correct
+      behavior in PowerPC architecture
+    * implement lazy-loading of XRF blocks
+

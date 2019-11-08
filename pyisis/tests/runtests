@@ -1,0 +1,7 @@
+#!/bin/bash
+for i in test_*.py
+do 
+    echo "___________________________________________" $i
+    nosetests -v $i
+done
+

@@ -1,0 +1,7 @@
+#!/usr/bin/python  
+
+from pyisis.tools import pymx
+try:
+    pymx.main()
+except KeyboardInterrupt:
+    pass

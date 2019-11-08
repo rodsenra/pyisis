@@ -1,0 +1,46 @@
+GIZMO
+=====
+
+A função GIZMO, no isis-nbp, utiliza a função de "encoding" do Python.
+O Python já vem instalado com vários codecs, na sua instalação padrão, mais detalhes 
+veja na pasta C:\Python25\lib\encodings para ver a lista de codecs suportados.
+
+Adicionalmente, para atender algumas conversões específicas, foram implementados alguns
+módulos de codecs adicionais, cujo python não oferece suporte nativo:
+
+gunihtml.py -> unicode para tags html (encode) e tag html para unicode (decode)
+gunilc.py   -> transforma para caracteres unicode minúsculos sem acento
+guniuc.py   -> transforma para caracteres unicode maiúsculos sem acento
+gunima.py   -> transforma para caracteres unicode maiúsculos com acento
+gunimi.py   -> transforma para caracteres unicode minúsculos com acento
+gunina.py   -> transforma para caracteres unicode sem acento
+
+Exemplo:
+
+In [1]: x = sample.cds[31][24]
+
+In [2]: print x.data
+Out[2]: Problèmes de sédimentation dans les deltas
+
+In [3]: x.data.encode('gunilc')
+Out[3]: problemes de sedimentation dans les deltas
+
+In [4]: x.data.encode('gunima')
+Out[4]: PROBLÈMES DE SÉDIMENTATION DANS LES DELTAS
+
+In [5]: x.data.encode('gunimi')
+Out[5]: problèmes de sédimentation dans les deltas
+
+In [6]: x.data.encode('guniuc')
+Out[6]: PROBLEMES DE SEDIMENTATION DANS LES DELTAS
+
+In [7]: x.data.encode('gunina')
+Out[7]: Problemes de sedimentation dans les deltas
+
+In [8]: x.data.encode('gunihtml')
+Out[8]: Probl&egrave;mes de s&eacute;dimentation dans les deltas
+
+In [9]: x.data.encode('gunihtml').decode('gunihtml')
+Out[9]: Problèmes de sédimentation dans les deltas
+
+

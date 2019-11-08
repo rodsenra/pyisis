@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block HEAD %}
+    <link href="media/restclient.css" rel="stylesheet" type="text/css" media="screen" />
+    <script language="JavaScript" type="text/javascript" src="media/prototype.js"></script>
+    <script language="JavaScript" type="text/javascript" src="media/restclient.js"></script>
+{% endblock %}
+
+{% block BODY %}
+<h1>{{title}}</h1>
+
+<div id="maindiv">
+    
+    <div id="radiogroup">
+        
+        <h4 id="option_label">Options:</h4>
+
+        <input type="radio" name="operation" value="createdb"
+                onclick="showForm(this.value,'createdbdiv','Create database')" checked>
+            Create database<BR>
+        <input type="radio" name="operation" value="deletedb"
+               onclick="showForm(this.value,'deletedbdiv','Delete database')">
+            Delete database<BR>
+        <input type="radio" name="operation" value="createrec"
+               onclick="showForm(this.value,'createrecdiv','Create record')">
+            Create record<BR>
+        <input type="radio" name="operation" value="readrec"
+               onclick="showForm(this.value,'readrecdiv','Read record')">
+            Read record<BR>
+            <!--<input type="radio" name="operation" value="updaterec"
+                   onclick="showForm(this.value,'updaterecdiv','Edit record')">
+                Edit a record<BR>
+            -->
+        <input type="radio" name="operation" value="deleterec"
+               onclick="showForm(this.value,'deleterecdiv','Delete record')">
+            Delete record
+    </div>
+    <div id="formdiv">
+        <form>
+            <input type="hidden" id="doActionForm" value="createdb">
+            <input type="text" id="titlediv" value="Create database">
+            
+            <div id="collectiondiv">
+                <label>Collection:
+                  <input type="text" id="collection_name" name="collection" size="25" value="sample"/>
+                </label><BR>
+            </div>
+            
+            <div id="createdbdiv">
+                <label>Database: <input type="text" id="dbnamec" name="dbnamec" size="25" /></label>
+            </div>
+
+            <div id="deletedbdiv" style="display:none;" >
+                <label>Database: <input type="text" id="dbnamed" name="dbnamed" size="25" /></label>
+            </div>
+            
+            <div id="readrecdiv" style="display:none;">
+                <label>Database: <input type="text" id="database" size="10" value=""/></label><BR>
+                <label>From: <input type="text" id="from_reg" size="10" /></label><BR>
+                <label>To: <input type="text" id="to_reg" size="10" /></label><BR>
+                <label>Count: <input type="text" id="count_reg" size="10"></label><BR>
+                <label>Gizmo: <input type="text" id="gizmo" size="20" /></label><BR/>
+                <label>Reverse: <input type="checkbox" id="reverse" value="0"></label>
+            </div>
+            
+            <div id="createrecdiv" style="display:none;" >                   
+                <label>
+		  Database: <input type="text" id="databasecr" size="25" value=""/>
+                </label>
+
+		<table class="tagslist" id="taglist"> 
+                  <tbody id="tbody">
+                    <tr><th>x</th><th>Tag</th><th>Value</th></tr>
+                  </tbody> 
+                </table>
+                <table> 
+                 <tr>
+                   <th colspan='3'>
+                     <input type="button" id="addbtn" value="+" OnClick="putLinha();" />
+                     <input type="button" id="delbtn" value="-" OnClick="delLinha();"/>
+                   </th>
+                 </tr>
+                </table>              
+            </div>
+            
+            <!--<div id="updaterecdiv" style="display:none;" >
+                <label>Update:<input type="text" id="from_reg" size="10" /></label>
+            </div>
+            -->
+            
+            <div id="deleterecdiv" style="display:none;">
+                <label>
+		  Database: <input type="text" id="databasedr" size="25" value=""/>
+                </label><BR>
+                <label>MFN:<input type="text" id="mfn" size="10"></label>
+            </div>
+            
+            <div id="buttondiv">
+              <input type="button" name="submit" value="Submit" OnClick="sendForm();">
+              <input type="reset" name="reset"  value="Reset">  
+            </div>    
+        </form>
+    </div>
+</div>
+<div id="resultdiv">
+   <table style="border:none">
+     <tr>
+	   <td>
+	     Request
+	   </td>
+	   <td>
+	   	  Result (XML)
+	   </td>
+	 </tr>  
+	 <tr>
+       <td>
+       	  <textarea id="sentText" cols="35" rows="10" style="font-size:90%;border: 1px solid #ccc">
+		  </textarea>
+	      <!--<div id="sentText" style="font-size:100%;width:300px; height:80px;background:#fff;border: 1px solid #ccc">
+		  </div>-->   
+       </td>
+	   <td>
+	   	  <textarea id="resultText" cols="60" rows="10" style="font-size:90%;border: 1px solid #ccc">
+		  </textarea>
+	      <!--<div id="resultText" style="width:300px; height:80px;background:#fff;border: 1px solid #ccc">
+		  </div>-->
+   	   </td>
+     </tr>
+   </table>
+</div>
+
+{% endblock %}
