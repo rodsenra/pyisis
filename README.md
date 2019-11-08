@@ -10,6 +10,7 @@ Later, Luciano Ramalho replaced me on this project, and I bet he made lots of en
 
 Cheers,
 Rodsenra
+
 rsenra@acm.org
 
 # License
@@ -18,6 +19,6 @@ This version is released under the MIT License.
 
 # References
 
-http://hrueda-isis.blogspot.com/2008/06/
-https://pdfslide.net/technology/rest-gateway-e-compiladores.html
+- http://hrueda-isis.blogspot.com/2008/06/
+- https://pdfslide.net/technology/rest-gateway-e-compiladores.html
 
