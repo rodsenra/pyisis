@@ -8,6 +8,8 @@ This is one of the original versions.
 
 Later, Luciano Ramalho replaced me on this project, and I bet he made lots of enhancements. But this code base has only my very humble code.
 
+This version hosted by Gustavo Fonseca is probably more up-to-date https://bitbucket.org/gustavofonseca/pyisis/src/master/
+
 Cheers,
 Rodsenra
 
